@@ -1,0 +1,98 @@
+/* =========================
+   HERO – IMAGEN DE FONDO
+========================= */
+
+.hero {
+  position: relative;
+  min-height: 70vh;
+
+  background-image: url("../assets/plato.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+}
+
+/* Overlay para legibilidad */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(11, 15, 20, 0.75) 0%,
+    rgba(11, 15, 20, 0.6) 40%,
+    rgba(11, 15, 20, 0.35) 70%,
+    rgba(11, 15, 20, 0.15) 100%
+  );
+}
+
+/* Contenido arriba del overlay */
+.hero-inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* Texto del hero */
+.hero-copy {
+  max-width: 520px;
+}
+
+.hero h1,
+.hero p,
+.hero .badge {
+  color: #fff;
+}
+
+/* Botones en hero */
+.hero .btn-outline {
+  border-color: rgba(255, 255, 255, 0.6);
+  color: #fff;
+}
+
+.hero .btn-outline:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* =========================
+   HERO – ESPACIADO
+========================= */
+
+/* Chips */
+.hero .chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.75rem;
+}
+
+/* Botones */
+.hero .actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.info-strip {
+  background: rgba(0, 0, 0, 0.03);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  padding: 0;
+}
+
+.info-strip-inner {
+  display: flex;
+  justify-content: center;
+  gap: clamp(1rem, 4vw, 2.5rem);
+  padding: 0.75rem 0;
+  flex-wrap: wrap;
+}
+
+.info-item {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}

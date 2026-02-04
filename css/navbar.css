@@ -1,0 +1,157 @@
+/* =========================
+   HEADER + NAVBAR (limpio)
+========================= */
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--header-bg, rgba(11, 15, 20, 0.95));
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header-inner {
+  padding-block: 0.9rem;
+  gap: var(--space-sm);
+}
+.brand-logo-only {
+  display: flex;
+  align-items: center;
+}
+
+.brand-logo {
+  width: 77px;
+  height: 44px;
+  object-fit: contain;
+}
+
+/* =========================
+   NAV (links)
+========================= */
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  color: var(--color-text-muted);
+  font-weight: var(--font-weight-medium);
+  transition: color var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--color-text);
+}
+
+/* Desktop / Mobile visibilidad */
+.nav-desktop {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-toggle {
+  display: none;
+}
+
+/* =========================
+   NAV TOGGLE (hamburguesa)
+========================= */
+
+.nav-toggle {
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.nav-toggle-lines {
+  position: relative;
+  width: 18px;
+  height: 2px;
+  background: var(--color-text);
+}
+
+.nav-toggle-lines::before,
+.nav-toggle-lines::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 18px;
+  height: 2px;
+  background: var(--color-text);
+}
+
+.nav-toggle-lines::before {
+  top: -6px;
+}
+
+.nav-toggle-lines::after {
+  top: 6px;
+}
+
+/* =========================
+   MOBILE MENU + OVERLAY
+========================= */
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: transparent;
+  backdrop-filter: blur(2px);
+  z-index: 90;
+}
+
+.mobile-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  z-index: 110;
+}
+
+.mobile-menu .nav-mobile {
+  max-width: 1200px;
+  margin-inline: auto;
+  background: var(--header-bg, rgba(11, 15, 20, 0.95));
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: var(--shadow-md);
+}
+
+/* Estado abierto */
+.site-header .menu-overlay,
+.site-header .mobile-menu {
+  display: none;
+}
+
+.site-header.is-open .menu-overlay,
+.site-header.is-open .mobile-menu {
+  display: block;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+  .nav-desktop {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+  }
+}

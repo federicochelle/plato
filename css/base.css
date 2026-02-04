@@ -1,0 +1,188 @@
+/* =========================
+   RESET MODERNO
+========================= */
+
+/* Box sizing consistente */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Eliminar márgenes por defecto */
+* {
+  margin: 0;
+}
+
+/* Altura base */
+html,
+body {
+  height: auto;
+}
+
+/* Body base */
+body {
+  min-height: 100dvh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  font-family: var(--font-display);
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  letter-spacing: 0.01em;
+}
+/* Medios responsivos */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Formularios heredan fuente */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Evitar overflow de texto */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* Quitar estilos de listas */
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+
+/* Links base */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* =========================
+   VARIABLES BASE (HIBISCOS)
+========================= */
+
+:root {
+  --color-bg: #f6f2ea; /* papel */
+  --color-bg-soft: #efe9dd; /* banda suave */
+  --color-surface: #ffffff; /* cards */
+  --color-text: #121212; /* negro suave */
+  --color-text-muted: #5b5b5b;
+  --color-border: rgba(18, 18, 18, 0.12);
+
+  --color-primary: #6b6a3a; /* oliva */
+  --color-primary-dark: #4f4e2c;
+
+  --shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 18px 50px rgba(0, 0, 0, 0.12);
+  --header-bg: rgba(246, 242, 234);
+  --overlay-bg: rgba(20, 20, 20, 0.75);
+
+  /* Tipos: industrial (dejamos Inter y reemplazamos display) */
+  --font-display:
+    "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+  /* Radios menos “cute” */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+
+  /* Tipografía */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  /* Espaciados */
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 3rem;
+  --space-xl: 4rem;
+
+  /* Transiciones */
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+}
+
+/* =========================
+   TIPOGRAFÍA BASE
+========================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+  color: var(--color-text);
+}
+
+h1 {
+  font-size: clamp(2.2rem, 4vw, 3rem);
+}
+
+h2 {
+  font-size: clamp(1.8rem, 3vw, 2.2rem);
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+p {
+  color: var(--color-text-muted);
+}
+
+/* =========================
+   ELEMENTOS BASE
+========================= */
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+section {
+  padding: var(--space-lg) 0;
+}
+
+small {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+/* Focus accesible */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+/* El contenido siempre arriba */
+.sections .section > * {
+  position: relative;
+  z-index: 1;
+}
