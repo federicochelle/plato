@@ -1,0 +1,45 @@
+/* =========================
+   MENÚ DE HOY – CARD
+========================= */
+
+.section-menu {
+  background: var(--color-bg);
+}
+
+/* Card especial */
+.menu-card {
+  border-left: 4px solid var(--color-primary);
+}
+
+/* Título del plato */
+.menu-title {
+  font-size: 1.35rem;
+}
+
+/* Descripción */
+.menu-description {
+  max-width: 60ch;
+}
+
+/* Meta info */
+.menu-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Precio protagonista */
+.menu-price {
+  font-size: 1.4rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+}
+
+/* Chips ya usan tu sistema */
+.menu-card .chips {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,28 @@
+/* =========================
+   1. BASE (reset + variables)
+========================= */
+@import "base.css";
+
+/* =========================
+   2. LAYOUT (estructura)
+========================= */
+@import "layout.css";
+
+/* =========================
+   3. COMPONENTS (navbar, botones, cards)
+========================= */
+@import "components.css";
+@import "navbar.css";
+
+/* =========================
+   4. PAGES / SECTIONS (hero, landing)
+========================= */
+@import "hero.css";
+@import "seccionmenu.css";
+@import "pruebasocial.css";
+@import "galeria.css";
+@import "ubicacion.css";
+/* =========================
+   5. OVERRIDES / FIXES (siempre al final)
+========================= */
+@import "overrides.css";

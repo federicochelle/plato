@@ -1,0 +1,197 @@
+/* =========================
+   LAYOUT
+========================= */
+
+/* =========================
+   CONTAINERS
+========================= */
+
+/* Contenedor principal */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: var(--space-sm);
+}
+
+/* Variantes opcionales */
+.container-narrow {
+  max-width: 960px;
+}
+
+.container-wide {
+  max-width: 1400px;
+}
+
+/* =========================
+   SECCIONES
+========================= */
+
+.section {
+  padding-block: var(--space-xl);
+}
+
+@media (max-width: 700px) {
+  .section {
+    padding-inline: 0;
+  }
+
+  .section .container {
+    padding-inline: clamp(1rem, 5vw, 2rem);
+  }
+}
+
+.section .container {
+  padding-inline: 2rem; /* margen visual cómodo */
+}
+
+/* =========================
+   GRID
+========================= */
+
+.grid {
+  display: grid;
+  gap: var(--space-md);
+}
+
+/* Grid 2 columnas responsive */
+.grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Grid 3 columnas responsive */
+.grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+/* =========================
+   FLEX HELPERS
+========================= */
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-between {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+/* =========================
+   STACK (espaciado vertical)
+========================= */
+
+.stack-xs > * + * {
+  margin-top: var(--space-xs);
+}
+
+.stack-sm > * + * {
+  margin-top: var(--space-sm);
+}
+
+.stack-md > * + * {
+  margin-top: var(--space-md);
+}
+
+.stack-lg > * + * {
+  margin-top: var(--space-lg);
+}
+
+/* =========================
+   TEXTO
+========================= */
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+/* =========================
+   ANCHOS MÁXIMOS
+========================= */
+
+.max-w-sm {
+  max-width: 480px;
+}
+
+.max-w-md {
+  max-width: 640px;
+}
+
+.max-w-lg {
+  max-width: 800px;
+}
+
+/* Centrar bloques con max-width */
+.max-w-sm,
+.max-w-md,
+.max-w-lg {
+  margin-inline: auto;
+}
+
+/* =========================
+   SEPARADORES
+========================= */
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--color-border);
+  margin-block: var(--space-lg);
+}
+
+/* =========================
+   ALTURAS
+========================= */
+
+.min-h-screen {
+  min-height: 100dvh;
+}
+
+.min-h-half {
+  min-height: 50vh;
+}
+
+/* =========================
+   POSICIONAMIENTO
+========================= */
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+/* =========================
+   Z-INDEX
+========================= */
+
+.z-1 {
+  z-index: 1;
+}
+
+.z-10 {
+  z-index: 10;
+}
+
+.z-100 {
+  z-index: 100;
+}

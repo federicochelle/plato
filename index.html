@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PLATO</title>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+   <!-- Header -->
+<header class="site-header" id="top">
+  <div class="container flex flex-between flex-wrap header-inner">
+    <!-- Brand -->
+    <a class="brand brand-logo-only" href="#top" aria-label="PLATO – Ir al inicio">
+  <img
+    class="brand-logo"
+    src="assets/logo.png"
+    alt="PLATO"
+    width="44"
+    height="44"
+    loading="eager"
+  />
+</a>
+
+    <!-- Nav desktop -->
+    <nav class="nav nav-desktop" aria-label="Navegación principal">
+      <a class="nav-link" href="#menu">Menú</a>
+      <a class="nav-link" href="#pedidos">Pedidos</a>
+      <a class="nav-link" href="#prensa">Prensa</a>
+      <a class="nav-link" href="#ubicacion">Ubicación</a>
+
+      <!-- CTA principal -->
+      <a
+        class="btn btn-primary nav-cta"
+        href="https://wa.me/59891640124?text=Hola%20PLATO!%20Quiero%20pedir%20el%20plato%20de%20hoy."
+        target="_blank"
+        rel="noopener"
+      >
+        Pedir por WhatsApp
+      </a>
+
+      <!-- Link secundario -->
+      <a
+        class="btn btn-outline"
+        href="https://www.instagram.com/plato.mvd"
+        target="_blank"
+        rel="noopener"
+        aria-label="Instagram de PLATO"
+        title="Instagram"
+      >
+        <svg
+          class="btn-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.25"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path
+            d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4l0 -8"
+          />
+          <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+          <path d="M16.5 7.5v.01" />
+        </svg>
+        Instagram
+      </a>
+    </nav>
+
+    <!-- Botón hamburguesa (mobile) -->
+    <button
+      class="nav-toggle"
+      type="button"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span class="nav-toggle-lines" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <!-- Overlay (mobile) -->
+  <div class="menu-overlay" data-menu-close hidden></div>
+
+  <!-- Menú mobile -->
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <nav class="nav nav-mobile" aria-label="Menú móvil">
+      <a class="nav-link" href="#menu" data-menu-close>Menú</a>
+      <a class="nav-link" href="#pedidos" data-menu-close>Pedidos</a>
+      <a class="nav-link" href="#prensa" data-menu-close>Prensa</a>
+      <a class="nav-link" href="#ubicacion" data-menu-close>Ubicación</a>
+
+      <a
+        class="btn btn-primary"
+        href="https://wa.me/59891640124?text=Hola%20PLATO!%20Quiero%20pedir%20el%20plato%20de%20hoy."
+        target="_blank"
+        rel="noopener"
+        data-menu-close
+      >
+        Pedir por WhatsApp
+      </a>
+
+      <a
+        class="btn btn-outline"
+        href="https://www.instagram.com/plato.mvd"
+        target="_blank"
+        rel="noopener"
+        data-menu-close
+      >
+        <svg
+          class="btn-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.25"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path
+            d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4l0 -8"
+          />
+          <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+          <path d="M16.5 7.5v.01" />
+        </svg>
+        Instagram
+      </a>
+    </nav>
+  </div>
+</header>
+
+ <!-- HERO -->
+
+  <section class="section hero">
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <h1>Almuerzo resuelto.</h1>
+      <p class="lead">
+        Un sabor distinto cada día, en pleno Centro de Montevideo.
+      </p>
+
+    
+
+      <div class="actions">
+        <a class="btn btn-primary" href="#menu">Ver menú de hoy</a>
+        <a
+          class="btn btn-outline"
+          href="https://wa.me/59891640124"
+          target="_blank"
+          rel="noopener"
+        >
+          Pedir por WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="info-strip">
+  <div class="container info-strip-inner">
+    <span class="info-item">⭐ 4.9 en Google</span>
+    <span class="info-dot" aria-hidden="true"></span>
+    <span class="info-item">L–V · 11:00–16:00</span>
+    <span class="info-dot" aria-hidden="true"></span>
+    <span class="info-item">📍 San José 1186</span>
+  </div>
+</section>
+ <!-- MENU -->
+
+<section id="menu" class="section section-menu">
+  <div class="container container-narrow stack-md">
+    <header class="stack-xs">
+      <h2>Menú de hoy</h2>
+      <p class="text-muted" id="menu-date">
+        Martes, 4 de febrero
+      </p>
+    </header>
+
+    <article class="card menu-card stack-sm">
+      <h3 class="menu-title">Milanesa con cacio e pepe</h3>
+
+      <p class="menu-description">
+        Milanesa de pollo con pasta fresca en salsa cremosa de queso y pimienta.
+      </p>
+
+     <div class="menu-meta">
+  <span class="menu-price">$390</span>
+
+  <button class="btn btn-outline" type="button" data-modal-open="menu-semanal">
+    Ver menú semanal
+  </button>
+</div>
+
+<div class="actions">
+  <a
+    class="btn btn-primary btn-full"
+    href="https://wa.me/59891640124"
+    target="_blank"
+    rel="noopener"
+  >
+    Pedir por WhatsApp
+  </a>
+</div>
+    </article>
+  </div>
+</section>
+
+ <!-- PRUEBA SOCIAL -->
+  <section id="prensa" class="section section-press">
+  <div class="container container-narrow stack-lg">
+    <header class="stack-xs">
+      <h2>En los medios</h2>
+      <p class="text-muted">
+        PLATO fue destacado por medios de referencia en Montevideo.
+      </p>
+    </header>
+
+    <div class="grid grid-2">
+      <!-- Nota 1 -->
+      <article class="press-card stack-sm">
+        <span class="press-source">El País Uruguay</span>
+        <h3 class="press-title">
+          Plato, la innovadora propuesta gastronómica urbana en pleno centro
+        </h3>
+        <p class="press-excerpt">
+          Una cocina abierta a la calle que sorprende con un menú que cambia
+          todos los días y mantiene una identidad clara.
+        </p>
+
+        <a class="press-link" href="#" target="_blank" rel="noopener">
+          Leer nota →
+        </a>
+      </article>
+
+      <!-- Nota 2 -->
+      <article class="press-card stack-sm">
+        <span class="press-source">La Diaria</span>
+        <h3 class="press-title">
+          Plato: la carta más breve y más cambiante
+        </h3>
+        <p class="press-excerpt">
+          Dos cocineros jóvenes despachan una única preparación diaria,
+          enfocada en el producto y el ritmo urbano.
+        </p>
+
+        <a class="press-link" href="#" target="_blank" rel="noopener">
+          Leer nota →
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+      
+<!-- GALERIA -->
+<section id="galeria" class="section section-gallery">
+  <div class="container stack-md">
+    <header class="flex flex-between flex-wrap">
+      <div class="stack-xs">
+        <h2>Galería</h2>
+        <p class="text-muted">Un vistazo a PLATO.</p>
+      </div>
+
+      <a
+        class="btn btn-outline"
+        href="https://www.instagram.com/plato.mvd"
+        target="_blank"
+        rel="noopener"
+      >
+        Ver Instagram
+      </a>
+    </header>
+
+    <div class="gallery-grid">
+      <button
+        class="gallery-item"
+        type="button"
+        data-lightbox="assets/pancito.jpg"
+        aria-label="Ver imagen ampliada"
+      >
+        <img
+          src="assets/pancito.jpg"
+          alt="Plato del día servido"
+          loading="lazy"
+        />
+        <span class="gallery-cap">Plato del dia</span>
+      </button>
+
+      <button
+        class="gallery-item"
+        type="button"
+        data-lightbox="assets/cocina.jpg"
+      >
+        <img
+          src="assets/cocina.jpg"
+          alt="Detalle de cocina y emplatado"
+          loading="lazy"
+        />
+        <span class="gallery-cap">Cocina</span>
+      </button>
+
+      <button
+        class="gallery-item"
+        type="button"
+        data-lightbox="assets/fachada.jpg"
+      >
+        <img
+          src="assets/fachada.jpg"
+          alt="Interior del local"
+          loading="lazy"
+        />
+        <span class="gallery-cap">Local</span>
+      </button>
+
+      <button
+        class="gallery-item"
+        type="button"
+        data-lightbox="assets/cocinas.jpg"
+      >
+        <img
+          src="assets/cocinas.jpg"
+          alt="Postre o bebida de la casa"
+          loading="lazy"
+        />
+        <span class="gallery-cap">Extras</span>
+      </button>
+
+      <button
+        class="gallery-item"
+        type="button"
+        data-lightbox="assets/plato.jpg"
+      >
+        <img
+          src="assets/plato.jpg"
+          alt="Plato del día en primer plano"
+          loading="lazy"
+        />
+        <span class="gallery-cap">Hoy</span>
+      </button>
+
+      <button
+        class="gallery-item"
+        type="button"
+        data-lightbox="assets/fachada.jpg"
+      >
+        <img
+          src="assets/fachada.jpg"
+          alt="Fachada o entrada de PLATO"
+          loading="lazy"
+        />
+        <span class="gallery-cap">Fachada</span>
+      </button>
+    </div>
+  </div>
+</section>
+<section id="ubicacion" class="section section-location">
+  <div class="container stack-md">
+    <header class="location-head">
+      <h2>Ubicación y horarios</h2>
+
+      <p class="location-line">
+        <span class="location-item">📍 <strong>San José 1186</strong> · Montevideo</span>
+        <span class="location-dot" aria-hidden="true">•</span>
+        <span class="location-item">🕒 Lun–Vie · <strong>11:00–16:00</strong></span>
+      </p>
+    </header>
+
+    <!-- Mapa liviano (preview) -->
+    <a
+      class="location-map"
+      href="https://www.google.com/maps?q=San%20Jos%C3%A9%201186%20Montevideo"
+      target="_blank"
+      rel="noopener"
+      aria-label="Abrir ubicación de PLATO en Google Maps"
+    >
+      <span class="location-map-badge">Ver en Google Maps</span>
+    </a>
+
+    <!-- Acciones -->
+    <div class="location-actions">
+      <a
+        class="btn btn-primary"
+        href="https://www.google.com/maps?q=San%20Jos%C3%A9%201186%20Montevideo"
+        target="_blank"
+        rel="noopener"
+      >
+        Cómo llegar
+      </a>
+
+      <a class="btn btn-outline" href="tel:+59891640124">Llamar</a>
+    </div>
+  </div>
+</section>
+</main>
+
+    <footer class="footer">
+  <div class="container footer-inner">
+    <p class="footer-brand">
+      <strong>PLATO</strong>
+      <span class="footer-sep">—</span>
+      San José 1186 · Montevideo
+    </p>
+
+    
+     
+    
+  </div>
+</footer>
+    <!-- Modal: Menú semanal -->
+<div class="modal" id="menu-semanal" hidden>
+  <div class="modal-overlay" data-modal-close></div>
+
+  <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="menu-semanal-title">
+    <header class="modal-header">
+      <h3 id="menu-semanal-title">Menú semanal</h3>
+
+      <button class="btn btn-outline modal-close" type="button" data-modal-close aria-label="Cerrar">
+        ✕
+      </button>
+    </header>
+
+    <div class="modal-body stack-sm">
+      <p class="text-muted">Sujeto a cambios según disponibilidad.</p>
+
+      <div class="week-list stack-sm">
+        <div class="week-item">
+          <strong>Lunes</strong>
+          <span>— Milanesa con cacio e pepe</span>
+        </div>
+
+        <div class="week-item">
+          <strong>Martes</strong>
+          <span>— Risotto de hongos</span>
+        </div>
+
+        <div class="week-item">
+          <strong>Miércoles</strong>
+          <span>— Pollo al curry con arroz jazmín</span>
+        </div>
+
+        <div class="week-item">
+          <strong>Jueves</strong>
+          <span>— Paella urbana</span>
+        </div>
+
+        <div class="week-item">
+          <strong>Viernes</strong>
+          <span>— Pasta fresca con salsa roja</span>
+        </div>
+      </div>
+    </div>
+
+    <footer class="modal-footer">
+      <a
+        class="btn btn-primary btn-full"
+        href="https://wa.me/59891640124?text=Hola%20PLATO!%20Quiero%20consultar%20el%20men%C3%BA%20semanal."
+        target="_blank"
+        rel="noopener"
+      >
+        Consultar por WhatsApp
+      </a>
+    </footer>
+  </div>
+</div>
+<!-- LIGHTBOX -->
+<div class="modal lightbox" id="lightbox" hidden>
+  <div class="modal-overlay" data-lightbox-close></div>
+
+  <div class="lightbox-dialog" role="dialog" aria-modal="true">
+    <button
+      class="lightbox-close"
+      type="button"
+      aria-label="Cerrar"
+      data-lightbox-close
+    >
+      ✕
+    </button>
+
+    <img id="lightbox-image" src="" alt="" />
+  </div>
+</div>
+<script src="js/app.js"></script>
+    
+  </body>
+</html>

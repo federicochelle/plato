@@ -1,0 +1,28 @@
+/* =========================
+   GALERÍA – IMAGEN FULL CARD
+========================= */
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  padding: 0; /* CLAVE */
+}
+
+/* Imagen ocupa toda la card */
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Aseguramos altura consistente */
+.gallery-item {
+  height: 260px;
+}
+
+@media (max-width: 800px) {
+  .gallery-item {
+    height: 200px;
+  }
+}
