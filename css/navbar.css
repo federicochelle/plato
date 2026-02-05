@@ -26,29 +26,46 @@
   height: 44px;
   object-fit: contain;
 }
-
 .info-strip {
   background: rgba(0, 0, 0, 0.03);
   border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
-  padding: 0;
   position: relative;
   z-index: 10;
+  padding: 0.5rem 0;
+  font-size: 0.75rem;
 }
 
 .info-strip-inner {
   display: flex;
+  align-items: center;
   justify-content: center;
-  gap: clamp(1rem, 4vw, 2.5rem);
-  padding: 0.3rem 0;
-  flex-wrap: wrap;
+
+  gap: clamp(0.75rem, 3vw, 2rem);
+  padding: 0 1rem;
+
+  flex-wrap: nowrap; /* ✅ NO romper línea */
+  white-space: nowrap; /* ✅ NO romper texto */
+  overflow-x: auto; /* ✅ si no entra, scrollea */
+  -webkit-overflow-scrolling: touch;
+
+  scrollbar-width: none; /* opcional */
+}
+
+.info-strip-inner::-webkit-scrollbar {
+  display: none; /* opcional */
+}
+
+.info-strip-inner > * {
+  flex: 0 0 auto; /* ✅ cada item no se achica raro */
+  white-space: nowrap;
 }
 
 .info-item {
   font-size: 0.95rem;
   color: var(--color-text-muted);
-  white-space: nowrap;
 }
+
 .info-google {
   cursor: pointer;
 }
@@ -57,7 +74,17 @@
   text-decoration: underline;
   color: var(--color-text);
 }
+.icon {
+  width: 1.2em;
+  height: 1.2em;
+  opacity: 0.75;
+}
 
+.info-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+}
 /* =========================
    NAV (links)
 ========================= */

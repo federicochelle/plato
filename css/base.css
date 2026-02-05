@@ -83,11 +83,9 @@ a {
   --color-primary-dark: #111111;
 
   /* Tipografías */
-  --font-ui:
-    system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
-    sans-serif;
+  --font-ui: "Merriweather", sans-serif;
 
-  --font-display: var(--font-ui);
+  --font-display: "Libre Baskerville", serif;
 
   /* Pesos */
   --font-weight-regular: 400;
@@ -121,7 +119,7 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   font-family: var(--font-ui);
-  background: var(--color-bg);
+  background: transparent;
   color: var(--color-text);
 }
 
