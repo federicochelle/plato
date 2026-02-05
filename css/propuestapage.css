@@ -1,0 +1,154 @@
+/* =====================================================
+   PROPUESTA — Página editorial
+===================================================== */
+
+/* Tipografía editorial solo para esta página */
+.section-propuesta-hero h1,
+.section-propuesta-hero p,
+main h2,
+main p,
+.propuesta-media figcaption {
+  font-family: "Libre Baskerville", serif;
+}
+
+/* UI (nav/botones) en Inter/system */
+.nav,
+.btn,
+.info-strip,
+.footer {
+  font-family: var(--font-ui);
+}
+
+/* Hero */
+.section-propuesta-hero {
+  padding-top: clamp(2rem, 6vw, 4rem);
+  padding-bottom: clamp(2rem, 6vw, 4rem);
+}
+
+.section-propuesta-hero .text-muted {
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.section-propuesta-hero h1 {
+  font-size: clamp(2.1rem, 4.5vw, 3.1rem);
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+}
+
+/* Lectura larga */
+main h2 {
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  margin-bottom: 0.25rem;
+  text-decoration: underline;
+}
+
+main p {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--color-text-muted);
+}
+
+/* Ritmo entre párrafos */
+main .stack-sm > * + * {
+  margin-top: 1rem;
+}
+
+/* Highlight section */
+.section-propuesta-highlight {
+  background: var(--color-bg-soft);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* =====================================================
+   PROPUESTA — Imagen + caption (sin card)
+   + alternancia izquierda/derecha
+===================================================== */
+
+/* Figura (contenedor editorial) */
+.propuesta-media {
+  max-width: px;
+  margin-block: 2rem;
+}
+
+/* Imagen */
+.propuesta-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+
+  aspect-ratio: 3 / 2; /* ✅ válido */
+  object-fit: cover;
+
+  border-radius: 0; /* PLATO editorial, recto. Cambiá si querés */
+}
+
+/* Caption (debajo, sin borde) */
+.propuesta-media figcaption {
+  margin-top: 0.5rem;
+  padding: 0; /* ✅ sin padding tipo card */
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+  border: 0; /* ✅ sin borde tipo card */
+}
+
+/* Alternancia DESKTOP */
+@media (min-width: 900px) {
+  .propuesta-left {
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  .propuesta-right {
+    margin-left: auto;
+    margin-right: 0;
+  }
+}
+
+/* Desktop: si querés un poco más panorámicas */
+@media (min-width: 900px) {
+  .propuesta-media img {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+/* Mobile: centradas y lectura cómoda */
+@media (max-width: 899px) {
+  .propuesta-media {
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  main p {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .propuesta-media figcaption {
+    font-size: 0.85rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .propuesta-left {
+    margin-left: 0;
+    margin-right: auto;
+    padding-right: 3rem; /* aire hacia el centro */
+  }
+
+  .propuesta-right {
+    margin-left: auto;
+    margin-right: 0;
+    padding-left: 3rem; /* aire hacia el centro */
+  }
+
+  .propuesta-center {
+    margin-inline: auto;
+    padding-inline: 0;
+  }
+}

@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Propuesta gastronómica | PLATO</title>
+
+    <!-- (Opcional) Tipografía editorial -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tu CSS -->
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/overrides.css" />
+    <link rel="stylesheet" href="css/propuestapage.css" />
+  </head>
+
+  <body>
+    <div class="page">
+     <!-- Header -->
+<header class="site-header" id="top">
+  <section class="info-strip">
+  <div class="container info-strip-inner">
+    <a
+  href="https://search.google.com/local/reviews?placeid=ChIJ72a1DeyBn5URlrzokHn5jHQ"
+  target="_blank"
+  rel="noopener"
+  class="info-item info-google"
+>
+  ⭐ 4.9 en Google
+</a>
+    <span class="info-dot" aria-hidden="true"></span>
+    <span class="info-item">L–V · 11:00–16:00</span>
+    <span class="info-dot" aria-hidden="true"></span>
+    <span class="info-item">📍 San José 1186</span>
+  </div>
+</section>
+  <div class="container flex flex-between flex-wrap header-inner">
+    <!-- Brand -->
+    <a class="brand brand-logo-only" href="#top" aria-label="PLATO – Ir al inicio">
+  <img
+    class="brand-logo"
+    src="assets/logo.png"
+    alt="PLATO"
+    width="44"
+    height="44"
+    loading="eager"
+  />
+</a>
+
+    <!-- Nav desktop -->
+    <nav class="nav nav-desktop" aria-label="Navegación principal">
+      <a class="nav-link" href="#menu">Menú</a>
+      <a class="nav-link" href="#pedidos">Pedidos</a>
+      <a class="nav-link" href="#prensa">Prensa</a>
+      <a class="nav-link" href="#ubicacion">Ubicación</a>
+
+      <!-- CTA principal -->
+      <a
+        class="btn btn-primary nav-cta"
+        href="https://wa.me/59891640124?text=Hola%20PLATO!%20Quiero%20pedir%20el%20plato%20de%20hoy."
+        target="_blank"
+        rel="noopener"
+      >
+        Pedir por WhatsApp
+      </a>
+
+      <!-- Link secundario -->
+      <a
+        class="btn btn-outline"
+        href="https://www.instagram.com/plato.mvd"
+        target="_blank"
+        rel="noopener"
+        aria-label="Instagram de PLATO"
+        title="Instagram"
+      >
+        <svg
+          class="btn-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.25"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path
+            d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4l0 -8"
+          />
+          <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+          <path d="M16.5 7.5v.01" />
+        </svg>
+        Instagram
+      </a>
+    </nav>
+
+    <!-- Botón hamburguesa (mobile) -->
+    <button
+      class="nav-toggle"
+      type="button"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span class="nav-toggle-lines" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <!-- Overlay (mobile) -->
+  <div class="menu-overlay" data-menu-close hidden></div>
+
+  <!-- Menú mobile -->
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <nav class="nav nav-mobile" aria-label="Menú móvil">
+      <a class="nav-link" href="index.html" data-menu-close>INICIO</a>
+      <a class="nav-link" href="index.html#menu" data-menu-close>Menu</a>
+      <a class="nav-link" href="index.html#prensa" data-menu-close>Prensa</a>
+      <a class="nav-link" href="index.html#ubicacion" data-menu-close>Ubicación</a>
+
+      <a
+        class="btn btn-primary"
+        href="https://wa.me/59891640124?text=Hola%20PLATO!%20Quiero%20pedir%20el%20plato%20de%20hoy."
+        target="_blank"
+        rel="noopener"
+        data-menu-close
+      >
+        Pedir por WhatsApp
+      </a>
+
+      <a
+        class="btn btn-outline"
+        href="https://www.instagram.com/plato.mvd"
+        target="_blank"
+        rel="noopener"
+        data-menu-close
+      >
+        <svg
+          class="btn-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.25"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path
+            d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4l0 -8"
+          />
+          <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+          <path d="M16.5 7.5v.01" />
+        </svg>
+        Instagram
+      </a>
+    </nav>
+  </div>
+</header><!-- HERO -->
+<section class="section section-propuesta-hero">
+  <div class="container container-narrow stack-md">
+    <header class="stack-xs">
+      <p class="text-muted">PLATO · Propuesta gastronómica</p>
+      <h1>Una cocina cotidiana, pensada con criterio gourmet</h1>
+    </header>
+
+    <p class="text-muted max-w-lg">
+      En PLATO entendemos lo gourmet no como lujo, sino como atención al
+      detalle. Cocinamos para todos los días, pero con la seriedad con
+      la que se piensa una carta: producto, técnica, equilibrio y
+      constancia.
+    </p>
+
+    <!-- Imagen 1 (hero) -->
+    <figure class="propuesta-media propuesta-center">
+      <img
+        src="assets/plato.jpg"
+        alt="Plato servido con presentación minimalista"
+        loading="lazy"
+      />
+      <figcaption class="text-muted">
+        Cocina de estación, técnica precisa y combinaciones simples.
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- FILOSOFÍA -->
+<section class="section">
+  <div class="container container-narrow stack-md">
+    <h2>Nuestra forma de cocinar</h2>
+
+    <div class="stack-sm">
+      <p>
+        La propuesta gastronómica de PLATO parte de una idea simple:
+        cocinar bien, todos los días. Eso implica tomar decisiones
+        conscientes: elegir productos, respetar temporadas, cocinar con
+        técnica y servir algo que esté pensado, no improvisado.
+      </p>
+
+      <p>
+        Buscamos una cocina clara: sabores definidos, combinaciones
+        equilibradas y un resultado consistente. Menos ruido, más
+        criterio.
+      </p>
+    </div>
+
+    <!-- Imagen 2 -->
+    <figure class="propuesta-media propuesta-right">
+      <img
+        src="assets/pancito.jpg"
+        alt="Preparación de ingredientes frescos en cocina"
+        loading="lazy"
+      />
+      <figcaption class="text-muted">
+        Preparación diaria: frescura y orden en cada servicio.
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- VARIEDAD / NO REPETIR -->
+<section class="section section-propuesta-highlight">
+  <div class="container container-narrow stack-md">
+    <h2>Variedad real, menú que se renueva</h2>
+
+    <div class="stack-sm">
+      <p>
+        El menú cambia todos los días. Trabajamos para que la variedad
+        sea real: técnicas distintas, combinaciones distintas y una idea
+        de plato que se renueva.
+      </p>
+
+      <p>
+        Desde el inicio, la regla fue clara:
+        <strong>evitar repetir</strong>. Eso mantiene el almuerzo
+        interesante y nos obliga a cocinar con creatividad responsable:
+        no por sorprender, sino por proponer algo bien armado.
+      </p>
+    </div>
+
+    <!-- Imagen 3 -->
+    <figure class="propuesta-media propuesta-left">
+      <img
+        src="assets/cocinas.jpg"
+        alt="Tres platos diferentes servidos en mesa"
+        loading="lazy"
+      />
+      <figcaption class="text-muted">
+        Platos distintos, misma lógica: producto + técnica + equilibrio.
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- PRODUCTO / ESTACIÓN -->
+<section class="section">
+  <div class="container container-narrow stack-md">
+    <h2>Producto de estación</h2>
+
+    <div class="stack-sm">
+      <p>
+        Cocinar con estación no es una moda: es la forma más directa de
+        lograr sabor. Trabajamos con ingredientes que están en su mejor
+        momento y armamos el menú en función de eso.
+      </p>
+
+      <p>
+        Esto nos permite mantener el plato vivo: cambia el producto,
+        cambia la guarnición, cambian los contrastes. La temporada
+        define el camino.
+      </p>
+    </div>
+
+    <!-- Imagen 4 -->
+    <figure class="propuesta-media propuesta-right">
+      <img
+        src="assets/fachada.jpg"
+        alt="Ingredientes frescos sobre mesa de trabajo"
+        loading="lazy"
+      />
+      <figcaption class="text-muted">
+        Ingredientes frescos: base simple, resultado serio.
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- TÉCNICA -->
+<section class="section">
+  <div class="container container-narrow stack-md">
+    <h2>Técnica y detalle</h2>
+
+    <div class="stack-sm">
+      <p>
+        En PLATO la técnica está al servicio del plato. No buscamos
+        complejidad por complejidad: buscamos precisión. Cocciones
+        correctas, salsas bien trabajadas, texturas que sumen y
+        presentaciones limpias.
+      </p>
+
+      <p>
+        Lo gourmet, para nosotros, se nota en lo que no se grita: en el
+        punto de cocción, en la temperatura de servicio, en el balance
+        de sal y acidez, en el respeto por el producto.
+      </p>
+    </div>
+
+    <!-- Imagen 5 -->
+    <figure class="propuesta-media propuesta-left">
+      <img
+        src="assets/cocina.jpg"
+        alt="Emplatado de un plato con terminación final"
+        loading="lazy"
+      />
+      <figcaption class="text-muted">
+        Técnica discreta: el protagonismo es del sabor.
+      </figcaption>
+    </figure>
+  </div>
+</section>
+        <!-- CIERRE + CTA -->
+        <section class="section section-propuesta-cta">
+          <div class="container container-narrow stack-md text-center">
+            <h2>Un almuerzo distinto cada día</h2>
+
+            <p class="text-muted max-w-md">
+              Cocinamos para que comer afuera sea simple, rico y bien hecho.
+              Menú diario, producto de estación, y una propuesta que se renueva.
+            </p>
+
+            <div class="actions flex-center flex-wrap" style="gap: 0.75rem">
+              <a class="btn btn-primary" href="/#menu">Ver menú de hoy</a>
+              <a
+                class="btn btn-outline"
+                href="https://wa.me/59891640124"
+                target="_blank"
+                rel="noopener"
+                >Pedir por WhatsApp</a
+              >
+            </div>
+
+            <p class="text-muted">
+              San José 1186 · Montevideo · Lunes a viernes
+            </p>
+          </div>
+        </section>
+      </main>
+
+      <!-- FOOTER (reutilizá tu footer actual) -->
+      <footer class="footer">
+        <div class="container footer-inner">
+          <p><strong>PLATO</strong> — San José 1186 · Montevideo</p>
+          <div class="footer-links">
+            <a
+              href="https://instagram.com/plato.mvd"
+              target="_blank"
+              rel="noopener"
+              >Instagram</a
+            >
+            <a href="https://wa.me/59891640124" target="_blank" rel="noopener"
+              >WhatsApp</a
+            >
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- (Opcional) Tu JS del menú mobile si ya lo tenés -->
+    <script src="js/app.js"></script>
+  </body>
+</html>

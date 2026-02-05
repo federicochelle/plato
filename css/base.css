@@ -1,6 +1,11 @@
-/* =========================
-   RESET MODERNO
-========================= */
+/* =====================================================
+   BASE.CSS — Núcleo de la librería
+   Reglas universales, neutras y estables
+===================================================== */
+
+/* =====================================================
+   1. RESET / NORMALIZACIÓN
+===================================================== */
 
 /* Box sizing consistente */
 *,
@@ -14,28 +19,12 @@
   margin: 0;
 }
 
-/* Altura base */
+/* Altura base correcta */
 html,
 body {
   height: auto;
 }
 
-/* Body base */
-body {
-  min-height: 100dvh;
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-  font-family: var(--font-display);
-  background: var(--color-bg);
-  color: var(--color-text);
-}
-
-h1,
-h2,
-h3 {
-  font-family: var(--font-display);
-  letter-spacing: 0.01em;
-}
 /* Medios responsivos */
 img,
 picture,
@@ -46,7 +35,7 @@ svg {
   max-width: 100%;
 }
 
-/* Formularios heredan fuente */
+/* Formularios heredan tipografía */
 input,
 button,
 textarea,
@@ -78,39 +67,37 @@ a {
   color: inherit;
 }
 
-/* =========================
-   VARIABLES BASE (HIBISCOS)
-========================= */
+/* =====================================================
+   2. TOKENS GLOBALES (VARIABLES NEUTRAS)
+===================================================== */
 
 :root {
-  --color-bg: #f6f2ea; /* papel */
-  --color-bg-soft: #efe9dd; /* banda suave */
-  --color-surface: #ffffff; /* cards */
-  --color-text: #121212; /* negro suave */
-  --color-text-muted: #5b5b5b;
-  --color-border: rgba(18, 18, 18, 0.12);
+  /* Colores base */
+  --color-bg: #ffffff;
+  --color-surface: #ffffff;
+  --color-text: #111111;
+  --color-text-muted: #555555;
+  --color-border: rgba(0, 0, 0, 0.12);
 
-  --color-primary: #6b6a3a; /* oliva */
-  --color-primary-dark: #4f4e2c;
+  --color-primary: #333333;
+  --color-primary-dark: #111111;
 
-  --shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.08);
-  --shadow-md: 0 18px 50px rgba(0, 0, 0, 0.12);
-  --header-bg: rgba(246, 242, 234);
-  --overlay-bg: rgba(20, 20, 20, 0.75);
+  /* Tipografías */
+  --font-ui:
+    system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
+    sans-serif;
 
-  /* Tipos: industrial (dejamos Inter y reemplazamos display) */
-  --font-display:
-    "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-display: var(--font-ui);
 
-  /* Radios menos “cute” */
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 12px;
-
-  /* Tipografía */
+  /* Pesos */
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-bold: 700;
+
+  /* Radios */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
 
   /* Espaciados */
   --space-2xs: 0.25rem;
@@ -125,9 +112,18 @@ a {
   --transition-base: 0.3s ease;
 }
 
-/* =========================
-   TIPOGRAFÍA BASE
-========================= */
+/* =====================================================
+   3. BASE TIPOGRÁFICA
+===================================================== */
+
+body {
+  min-height: 100dvh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  font-family: var(--font-ui);
+  background: var(--color-bg);
+  color: var(--color-text);
+}
 
 h1,
 h2,
@@ -135,17 +131,19 @@ h3,
 h4,
 h5,
 h6 {
+  font-family: var(--font-display);
   font-weight: var(--font-weight-bold);
   line-height: 1.2;
   color: var(--color-text);
 }
 
 h1 {
-  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-size: clamp(2rem, 4vw, 3rem);
 }
 
 h2 {
-  font-size: clamp(1.8rem, 3vw, 2.2rem);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  text-decoration: underline;
 }
 
 h3 {
@@ -156,9 +154,14 @@ p {
   color: var(--color-text-muted);
 }
 
-/* =========================
-   ELEMENTOS BASE
-========================= */
+small {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+/* =====================================================
+   4. ELEMENTOS HTML BASE
+===================================================== */
 
 button {
   background: none;
@@ -170,19 +173,12 @@ section {
   padding: var(--space-lg) 0;
 }
 
-small {
-  font-size: 0.875rem;
-  color: var(--color-text-muted);
-}
-
 /* Focus accesible */
 :focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 3px;
 }
 
-/* El contenido siempre arriba */
-.sections .section > * {
-  position: relative;
-  z-index: 1;
-}
+/* =====================================================
+   FIN BASE.CSS
+===================================================== */

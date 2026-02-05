@@ -3,10 +3,10 @@
 ========================= */
 
 .section-press .press-card {
-  padding: 1.2rem 1.3rem;
+  padding: 1rem 1rem;
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  background: rgba(0, 0, 0, 0.015);
+
+  background: rgba(0, 0, 0, 0.075);
   transition:
     transform var(--transition-fast),
     box-shadow var(--transition-fast),
@@ -23,7 +23,7 @@
   font-size: 0.75rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-text-muted);
+  color: var(--color-primary-dark);
 }
 
 .press-title {
@@ -37,7 +37,8 @@
 
 .press-link {
   font-weight: var(--font-weight-medium);
-  color: var(--color-text);
+  margin-top: 1rem;
+  color: var(--color-primary-dark);
   text-decoration: underline;
   text-underline-offset: 3px;
 }

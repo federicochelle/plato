@@ -75,24 +75,3 @@
   margin-top: 1.25rem;
   flex-wrap: wrap;
 }
-
-.info-strip {
-  background: rgba(0, 0, 0, 0.03);
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
-  padding: 0;
-}
-
-.info-strip-inner {
-  display: flex;
-  justify-content: center;
-  gap: clamp(1rem, 4vw, 2.5rem);
-  padding: 0.75rem 0;
-  flex-wrap: wrap;
-}
-
-.info-item {
-  font-size: 0.95rem;
-  color: var(--color-text-muted);
-  white-space: nowrap;
-}
