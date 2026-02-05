@@ -5,8 +5,12 @@
 
 /* 1) Fondo editorial global (JPG) */
 body {
-  background: var(--color-bg); /* sigue tu tema hibiscos */
+  background: url(../assets/fondo.webp);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
 :root {
   /* PLATO – tema editorial */
   --color-bg: #f6f2ea; /* papel */
