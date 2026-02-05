@@ -10,13 +10,35 @@
       href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
       rel="stylesheet"
     />
-    
+    <!-- Open Graph / Social -->
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="es_UY" />
+
+<meta property="og:title" content="PLATO — Un almuerzo distinto cada día" />
+<meta
+  property="og:description"
+  content="Cocina cotidiana con criterio gourmet. Menú diario, producto de estación y una propuesta que se renueva en pleno Centro de Montevideo."
+/>
+
+<meta property="og:url" content="https://federcochelle.github.io/plato/" />
+<meta property="og:site_name" content="PLATO" />
+
+<meta
+  property="og:image"
+  content="https://federcochelle.github.io/plato/assets/open.jpg"
+/>
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta
+  property="og:image:alt"
+  content="PLATO — Cocina cotidiana con propuesta diaria en Montevideo"
+/>
     <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
-    <div class="page">
+    <div class="page" id="top">
    <!-- Header -->
-<header class="site-header" id="top">
+<header class="site-header" >
   <section class="info-strip">
   <div class="container info-strip-inner">
     <a
@@ -59,7 +81,6 @@
     <!-- Nav desktop -->
     <nav class="nav nav-desktop" aria-label="Navegación principal">
       <a class="nav-link" href="#menu">Menú</a>
-      <a class="nav-link" href="#pedidos">Pedidos</a>
       <a class="nav-link" href="#prensa">Prensa</a>
       <a class="nav-link" href="#ubicacion">Ubicación</a>
 
@@ -123,7 +144,6 @@
   <div class="mobile-menu" id="mobile-menu" hidden>
     <nav class="nav nav-mobile" aria-label="Menú móvil">
       <a class="nav-link" href="#menu" data-menu-close>Menú</a>
-      <a class="nav-link" href="#pedidos" data-menu-close>Pedidos</a>
       <a class="nav-link" href="#prensa" data-menu-close>Prensa</a>
       <a class="nav-link" href="#ubicacion" data-menu-close>Ubicación</a>
 
@@ -235,10 +255,10 @@
 </section>
  <!-- PROPUESTA -->
 <section id="propuesta" class="section section-propuesta-preview">
-  <div class="container container-narrow stack-md">
+  <div class="container container-narrow stack-lg">
     <header class="stack-xs">
       <h2>Variedad que cambia</h2>
-      <p class="text-muted max-w-lg">
+      <p class="text-muted">
         En PLATO el menú cambia todos los días. Trabajamos con productos de estación y
         buscamos variedad real: combinaciones distintas, técnicas distintas, platos que se
         renuevan. Desde que empezamos, la idea fue clara: <strong>evitar repetir</strong> y
@@ -248,12 +268,14 @@
 
     <div class="actions">
       <a class="press-link" href="page.html" target="_blank" rel="noopener">
-          Conocé más →
+          <strong>Conocé más →</strong>
         </a>
     </div>
   </div>
 </section>
- <!-- PRUEBA SOCIAL -->
+
+
+<!-- PRUEBA SOCIAL -->
   <section id="prensa" class="section section-press">
   <div class="container container-narrow stack-lg">
     <header class="stack-xs">
@@ -275,13 +297,14 @@
           todos los días y mantiene una identidad clara.
         </p>
 
-        <a class="press-link" href="#" target="_blank" rel="noopener">
-          Leer nota →
+        <a class="press-link" href="https://www.elpais.com.uy/el-empresario/plato-la-innovadora-propuesta-gastronomica-urbana-en-pleno-centro-montevideano-que-sorprende-semana-a-semana" target="_blank" rel="noopener">
+         <strong> Leer nota →</strong>
         </a>
       </article>
 
       <!-- Nota 2 -->
       <article class="press-card stack-sm">
+        
         <span class="press-source">La Diaria</span>
         <h3 class="press-title">
           Plato: la carta más breve y más cambiante
@@ -291,8 +314,8 @@
           enfocada en el producto y el ritmo urbano.
         </p>
 
-        <a class="press-link" href="#" target="_blank" rel="noopener">
-          Leer nota →
+        <a class="press-link" href="https://ladiaria.com.uy/cotidiana/articulo/2025/8/plato-la-carta-mas-breve-y-mas-cambiante/" target="_blank" rel="noopener">
+         <strong> Leer nota →</strong>
         </a>
       </article>
     </div>
@@ -301,7 +324,7 @@
       
 <!-- GALERIA -->
 <section id="galeria" class="section section-gallery">
-  <div class="container stack-md">
+  <div class="container container-narrow stack-lg">
     <header class="flex flex-between flex-wrap">
       <div class="stack-xs">
         <h2>Galería</h2>
@@ -458,19 +481,7 @@
       <span class="location-map-badge">Ver en Google Maps</span>
     </a>
 
-    <!-- Acciones -->
-    <div class="location-actions">
-      <a
-        class="btn btn-primary"
-        href="https://www.google.com/maps?q=San%20Jos%C3%A9%201186%20Montevideo"
-        target="_blank"
-        rel="noopener"
-      >
-        Cómo llegar
-      </a>
-
-      <a class="btn btn-outline" href="tel:+59891640124">Llamar</a>
-    </div>
+    
   </div>
 </section>
 </main>

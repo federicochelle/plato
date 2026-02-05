@@ -5,8 +5,8 @@
 
 /* 1) Fondo editorial global (JPG) */
 body {
-  background: url(../assets/fondo.webp);
-  background-position: center;
+  background: url(../assets/fondooo.jpeg);
+  background-position: left;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -62,4 +62,13 @@ body {
 .page {
   position: relative;
   z-index: 1;
+}
+
+:root {
+  --nav-offset: 100px; /* ajustá según la altura real del header */
+}
+
+html {
+  scroll-padding-top: var(--nav-offset);
+  scroll-behavior: smooth;
 }
