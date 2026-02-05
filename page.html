@@ -20,9 +20,9 @@
   </head>
 
   <body>
-    <div class="page">
+    <div class="page" id="top">
      <!-- Header -->
-<header class="site-header" id="top">
+<header class="site-header" >
   <section class="info-strip">
   <div class="container info-strip-inner">
     <a
@@ -31,14 +31,25 @@
   rel="noopener"
   class="info-item info-google"
 >
-  ⭐ 4.9 en Google
+ <svg
+  class="icon icon-star"
+  viewBox="0 0 24 24"
+  aria-hidden="true"
+>
+  <path
+    d="M12 3l2.9 6 6.6.6-5 4.4 1.5 6.4L12 17l-6 3.4L7.5 14 2.5 9.6 9 9z"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.6"
+  />
+</svg><strong> 4.9 en Google</strong>
 </a>
     <span class="info-dot" aria-hidden="true"></span>
     <span class="info-item">L–V · 11:00–16:00</span>
-    <span class="info-dot" aria-hidden="true"></span>
-    <span class="info-item">📍 San José 1186</span>
+    
   </div>
 </section>
+  
   <div class="container flex flex-between flex-wrap header-inner">
     <!-- Brand -->
     <a class="brand brand-logo-only" href="#top" aria-label="PLATO – Ir al inicio">
@@ -118,7 +129,7 @@
   <!-- Menú mobile -->
   <div class="mobile-menu" id="mobile-menu" hidden>
     <nav class="nav nav-mobile" aria-label="Menú móvil">
-      <a class="nav-link" href="index.html" data-menu-close>INICIO</a>
+      <a class="nav-link" href="index.html" data-menu-close>Inicio</a>
       <a class="nav-link" href="index.html#menu" data-menu-close>Menu</a>
       <a class="nav-link" href="index.html#prensa" data-menu-close>Prensa</a>
       <a class="nav-link" href="index.html#ubicacion" data-menu-close>Ubicación</a>
@@ -335,8 +346,8 @@
               Menú diario, producto de estación, y una propuesta que se renueva.
             </p>
 
-            <div class="actions flex-center flex-wrap" style="gap: 0.75rem">
-              <a class="btn btn-primary" href="/#menu">Ver menú de hoy</a>
+            <div class="actions">
+              <a class="btn btn-primary" href="index.html#menu">Ver menú de hoy</a>
               <a
                 class="btn btn-outline"
                 href="https://wa.me/59891640124"

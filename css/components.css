@@ -247,7 +247,6 @@ svg {
 ========================= */
 
 .footer {
-  margin-top: var(--space-xl);
   padding-block: 2rem;
   border-top: 1px solid var(--color-border);
   background: black;

@@ -104,8 +104,14 @@
 
 /* ---------- Desktop ---------- */
 @media (min-width: 900px) {
+  .gallery {
+    overflow: hidden;
+  }
+
   .gallery-track {
     grid-auto-columns: 26%; /* 🔥 más chico en desktop */
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .gallery-nav {
