@@ -1,30 +1,99 @@
-/* =========================
-   GALERÍA – IMAGEN FULL CARD
-========================= */
+/* =====================================================
+   GALERÍA — Carrusel limpio (SIN border-radius)
+===================================================== */
 
-.gallery-item {
+.gallery {
   position: relative;
+}
+.gallery-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* ---------- Track ---------- */
+.gallery-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 48%; /* mobile: más chico */
+  gap: 0.9rem;
+
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+
+  padding-bottom: 0.25rem;
+  -webkit-overflow-scrolling: touch;
+
+  scrollbar-width: none;
+}
+.gallery-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---------- Slide ---------- */
+.gallery-slide {
+  position: relative;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+
+  scroll-snap-align: center;
   overflow: hidden;
-  padding: 0; /* CLAVE */
-  border-radius: 0;
+
+  border-radius: 0; /* 🔥 plano total */
 }
 
-/* Imagen ocupa toda la card */
-.gallery-item img {
+/* ---------- Imagen ---------- */
+.gallery-slide img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   display: block;
+
+  aspect-ratio: 4 / 5; /* más chica y editorial */
+  object-fit: cover;
+
+  border-radius: 0; /* 🔥 sin redondeo */
 }
 
-/* Aseguramos altura consistente */
-.gallery-item {
-  height: 260px;
+/* ---------- Caption ---------- */
+.gallery-cap {
+  position: absolute;
+  left: 0.6rem;
+  bottom: 0.6rem;
+
+  padding: 0.4rem 0.6rem;
+  border-radius: 999px; /* pill está bien */
+  background: rgba(0, 0, 0, 0.55);
+
+  color: #fff;
+  font-size: 0.85rem;
+  line-height: 1;
+  backdrop-filter: blur(6px);
 }
 
-@media (max-width: 800px) {
-  .gallery-item {
-    height: 350px;
-    border-radius: 0;
+.gallery-prev {
+  left: -10px;
+}
+.gallery-next {
+  right: -10px;
+}
+
+/* ---------- Desktop ---------- */
+@media (min-width: 900px) {
+  .gallery-track {
+    grid-auto-columns: 26%; /* 🔥 más chico en desktop */
   }
+
+  .gallery-nav {
+    display: inline-flex;
+  }
+}
+
+/* ---------- Accesibilidad ---------- */
+.gallery-slide:focus-visible,
+.gallery-nav:focus-visible,
+.gallery-track:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
 }
