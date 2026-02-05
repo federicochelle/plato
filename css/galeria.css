@@ -6,6 +6,7 @@
   position: relative;
   overflow: hidden;
   padding: 0; /* CLAVE */
+  border-radius: 0;
 }
 
 /* Imagen ocupa toda la card */
@@ -23,6 +24,7 @@
 
 @media (max-width: 800px) {
   .gallery-item {
-    height: 200px;
+    height: 350px;
+    border-radius: 0;
   }
 }

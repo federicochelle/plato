@@ -1,0 +1,61 @@
+/* =====================================================
+   OVERRIDES — Proyecto PLATO
+   (solo decisiones del sitio)
+===================================================== */
+
+/* 1) Fondo editorial global (JPG) */
+body {
+  background: var(--color-bg); /* sigue tu tema hibiscos */
+}
+:root {
+  /* PLATO – tema editorial */
+  --color-bg: #f6f2ea; /* papel */
+  --color-bg-soft: #efe9dd; /* banda suave */
+  --color-surface: #ffffff; /* cards */
+
+  --color-text: #121212;
+  --color-text-muted: #5b5b5b;
+  --color-border: rgba(18, 18, 18, 0.12);
+
+  --color-primary: #6b6a3a;
+  --color-primary-dark: #4f4e2c;
+
+  --header-bg: rgba(246, 242, 234, 0.92); /* 👈 PLATO header */
+  --overlay-bg: rgba(20, 20, 20, 0.75);
+}
+
+/* 2) Levantamos TODO el contenido (solución limpia a “se superpone”) */
+.page {
+  position: relative;
+  z-index: 1;
+}
+
+/* 3) Asegurar capas del header y overlays (si usás sticky + menú mobile) */
+.site-header {
+  background: var(--header-bg);
+  position: sticky;
+  top: 0;
+  z-index: 100; /* arriba del contenido */
+}
+
+/* Overlay del menú mobile */
+.menu-overlay {
+  z-index: 200;
+}
+
+/* Panel del menú mobile */
+.mobile-menu {
+  z-index: 210;
+}
+
+/* 4) Si querés: en mobile bajamos opacidad/tamaño del fondo */
+@media (max-width: 768px) {
+  body::before {
+    background-size: 140vw;
+    opacity: 0.04;
+  }
+}
+.page {
+  position: relative;
+  z-index: 1;
+}

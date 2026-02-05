@@ -4,11 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PLATO</title>
+    
     <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
+    <div class="page">
    <!-- Header -->
 <header class="site-header" id="top">
+  <section class="info-strip">
+  <div class="container info-strip-inner">
+    <a
+  href="https://search.google.com/local/reviews?placeid=ChIJ72a1DeyBn5URlrzokHn5jHQ"
+  target="_blank"
+  rel="noopener"
+  class="info-item info-google"
+>
+  ⭐ 4.9 en Google
+</a>
+    <span class="info-dot" aria-hidden="true"></span>
+    <span class="info-item">L–V · 11:00–16:00</span>
+    <span class="info-dot" aria-hidden="true"></span>
+    <span class="info-item">📍 San José 1186</span>
+  </div>
+</section>
   <div class="container flex flex-between flex-wrap header-inner">
     <!-- Brand -->
     <a class="brand brand-logo-only" href="#top" aria-label="PLATO – Ir al inicio">
@@ -161,24 +179,14 @@
   </div>
 </section>
 
-<section class="info-strip">
-  <div class="container info-strip-inner">
-    <span class="info-item">⭐ 4.9 en Google</span>
-    <span class="info-dot" aria-hidden="true"></span>
-    <span class="info-item">L–V · 11:00–16:00</span>
-    <span class="info-dot" aria-hidden="true"></span>
-    <span class="info-item">📍 San José 1186</span>
-  </div>
-</section>
- <!-- MENU -->
 
+ <!-- MENU -->
 <section id="menu" class="section section-menu">
+
   <div class="container container-narrow stack-md">
     <header class="stack-xs">
       <h2>Menú de hoy</h2>
-      <p class="text-muted" id="menu-date">
-        Martes, 4 de febrero
-      </p>
+      <p class="text-muted" id="menu-date">Martes, 4 de febrero</p>
     </header>
 
     <article class="card menu-card stack-sm">
@@ -188,28 +196,47 @@
         Milanesa de pollo con pasta fresca en salsa cremosa de queso y pimienta.
       </p>
 
-     <div class="menu-meta">
-  <span class="menu-price">$390</span>
+      <div class="menu-meta">
+        <span class="menu-price">$390</span>
 
-  <button class="btn btn-outline" type="button" data-modal-open="menu-semanal">
-    Ver menú semanal
-  </button>
-</div>
+        <button class="btn btn-outline" type="button" data-modal-open="menu-semanal">
+          Ver menú semanal
+        </button>
+      </div>
 
-<div class="actions">
-  <a
-    class="btn btn-primary btn-full"
-    href="https://wa.me/59891640124"
-    target="_blank"
-    rel="noopener"
-  >
-    Pedir por WhatsApp
-  </a>
-</div>
+      <div class="actions">
+        <a
+          class="btn btn-primary btn-full"
+          href="https://wa.me/59891640124"
+          target="_blank"
+          rel="noopener"
+        >
+          Pedir por WhatsApp
+        </a>
+      </div>
     </article>
   </div>
 </section>
+ <!-- PROPUESTA -->
+<section id="propuesta" class="section section-propuesta-preview">
+  <div class="container container-narrow stack-md">
+    <header class="stack-xs">
+      <h2>Variedad que cambia</h2>
+      <p class="text-muted max-w-lg">
+        En PLATO el menú cambia todos los días. Trabajamos con productos de estación y
+        buscamos variedad real: combinaciones distintas, técnicas distintas, platos que se
+        renuevan. Desde que empezamos, la idea fue clara: <strong>evitar repetir</strong> y
+        mantener el almuerzo siempre interesante.
+      </p>
+    </header>
 
+    <div class="actions">
+      <a class="press-link" href="page.html" target="_blank" rel="noopener">
+          Conocé más →
+        </a>
+    </div>
+  </div>
+</section>
  <!-- PRUEBA SOCIAL -->
   <section id="prensa" class="section section-press">
   <div class="container container-narrow stack-lg">
@@ -265,14 +292,35 @@
         <p class="text-muted">Un vistazo a PLATO.</p>
       </div>
 
-      <a
-        class="btn btn-outline"
+       <a
+        class="btn btn-primary"
         href="https://www.instagram.com/plato.mvd"
         target="_blank"
         rel="noopener"
+        aria-label="Instagram de PLATO"
+        title="Instagram"
       >
-        Ver Instagram
+        <svg
+          class="btn-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.25"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path
+            d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4l0 -8"
+          />
+          <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+          <path d="M16.5 7.5v.01" />
+        </svg>
+        Instagram
       </a>
+    
     </header>
 
     <div class="gallery-grid">
@@ -484,6 +532,6 @@
   </div>
 </div>
 <script src="js/app.js"></script>
-    
+    </div>
   </body>
 </html>

@@ -1,0 +1,13 @@
+.section-propuesta-preview {
+  background: rgba(0, 0, 0, 0.075);
+}
+
+.section-propuesta-preview .text-muted {
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.section-propuesta-preview .actions {
+  display: flex;
+  justify-content: flex-start;
+}
