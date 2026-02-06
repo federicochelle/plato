@@ -46,3 +46,26 @@
   font-weight: var(--font-weight-bold);
   color: var(--color-text);
 }
+
+/*LOADER*/
+/* =========================
+   MENU LOADING (PULSE)
+========================= */
+
+.menu-loading {
+  font-size: 1.5rem;
+  font-family: var(--font-display);
+  animation: menuPulse 1.4s ease-in-out infinite;
+}
+
+@keyframes menuPulse {
+  0% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.35;
+  }
+}
