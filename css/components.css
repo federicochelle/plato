@@ -197,7 +197,7 @@ svg {
   left: 10px;
   bottom: 10px;
   padding: 0.35rem 0.6rem;
-  border-radius: var(--radius-pill);
+  border-radius: 0;
   background: rgba(0, 0, 0, 0.65);
   color: #fff;
   font-size: 0.85rem;
@@ -534,7 +534,7 @@ svg {
 .lightbox-dialog img {
   max-width: 80%;
   max-height: 88vh;
-  border-radius: var(--radius-md);
+  border-radius: 0;
   box-shadow: var(--shadow-md);
 }
 

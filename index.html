@@ -382,7 +382,7 @@
       <div class="gallery-track" tabindex="0" aria-label="Carrusel: Platos">
         <button class="gallery-slide" type="button" data-lightbox="assets/pancito.jpg">
           <img src="assets/pancito.jpg" alt="Plato del día servido" loading="lazy" />
-          <span class="gallery-cap">Plato del día</span>
+            <span class="gallery-cap">Plato del día</span>
         </button>
 
         <button class="gallery-slide" type="button" data-lightbox="assets/plato.jpg">
@@ -390,6 +390,11 @@
           <span class="gallery-cap">Hoy</span>
         </button>
 
+        <button class="gallery-slide" type="button" data-lightbox="assets/cocinas.jpg">
+          <img src="assets/cocinas.jpg" alt="Platos variados" loading="lazy" />
+          <span class="gallery-cap">Variedad</span>
+        </button>
+        
         <button class="gallery-slide" type="button" data-lightbox="assets/cocinas.jpg">
           <img src="assets/cocinas.jpg" alt="Platos variados" loading="lazy" />
           <span class="gallery-cap">Variedad</span>
@@ -425,6 +430,11 @@
           <img src="assets/fachada.jpg" alt="Interior del local" loading="lazy" />
           <span class="gallery-cap">Local</span>
         </button>
+        
+        <button class="gallery-slide" type="button" data-lightbox="assets/cocinas.jpg">
+          <img src="assets/cocinas.jpg" alt="Platos variados" loading="lazy" />
+          <span class="gallery-cap">Variedad</span>
+        </button>
       </div>
 
      
@@ -434,62 +444,79 @@
 </div>
   </div>
 </section>
+
+
+<!-- LOCACION -->
 <section id="ubicacion" class="section section-location">
-  <div class="container stack-md">
-    <header class="location-head">
-      <h2>Ubicación y horarios</h2>
+  <div class="container container-narrow stack-lg">
+    <div class="location-grid">
+      <!-- IZQUIERDA: texto + botón -->
+      <div class="location-info stack-md">
+        <header class="location-head">
+          <h2>Ubicación y horarios</h2>
 
-      <p class="location-line">
-  <span class="location-item">
-    <svg class="icon icon-pin" viewBox="0 0 24 24" aria-hidden="true">
-      <path
-        d="M12 22c4-4.5 7-8.2 7-12.2A7 7 0 1 0 5 9.8C5 13.8 8 17.5 12 22z"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1.4"
-      />
-    </svg>
-    <strong>San José 1186</strong> · Montevideo
-  </span>
+          <p class="location-line">
+            <span class="location-item">
+              <svg class="icon icon-pin" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12 22c4-4.5 7-8.2 7-12.2A7 7 0 1 0 5 9.8C5 13.8 8 17.5 12 22z"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.4"
+                />
+              </svg>
+              <strong>San José 1186</strong> · Montevideo
+            </span>
 
-  <span class="location-dot" aria-hidden="true">•</span>
+            <span class="location-dot" aria-hidden="true">•</span>
 
-  <span class="location-item">
-    <svg class="icon icon-clock" viewBox="0 0 24 24" aria-hidden="true">
-      <circle
-        cx="12"
-        cy="12"
-        r="8"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1.4"
-      />
-      <path
-        d="M12 7v5l3 2"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1.4"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-    </svg>
-    Lun–Vie · <strong>11:00–16:00</strong>
-  </span>
-</p>
-    </header>
+            <span class="location-item">
+              <svg class="icon icon-clock" viewBox="0 0 24 24" aria-hidden="true">
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="8"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.4"
+                />
+                <path
+                  d="M12 7v5l3 2"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              Lun–Vie · <strong>11:00–16:00</strong>
+            </span>
+          </p>
+        </header>
 
-    <!-- Mapa liviano (preview) -->
-    <a
-      class="location-map"
-      href="https://www.google.com/maps?q=San%20Jos%C3%A9%201186%20Montevideo"
-      target="_blank"
-      rel="noopener"
-      aria-label="Abrir ubicación de PLATO en Google Maps"
-    >
-      <span class="location-map-badge">Ver en Google Maps</span>
-    </a>
+        <footer class="location-actions">
+          <a
+            class="btn btn-primary btn-full"
+            href="https://wa.me/59891640124?text=Hola%20PLATO!%20Quiero%20consultar%20el%20men%C3%BA%20semanal."
+            target="_blank"
+            rel="noopener"
+          >
+            Consultar por WhatsApp
+          </a>
+        </footer>
+      </div>
 
-    
+      <!-- DERECHA: mapa -->
+      <a
+        class="location-map"
+        href="https://www.google.com/maps?q=San%20Jos%C3%A9%201186%20Montevideo"
+        target="_blank"
+        rel="noopener"
+        aria-label="Abrir ubicación de PLATO en Google Maps"
+      >
+        <span class="location-map-badge">Ver en Google Maps</span>
+      </a>
+    </div>
   </div>
 </section>
 </main>
@@ -507,6 +534,7 @@
     
   </div>
 </footer>
+
 <!-- Modal: Menú semanal -->
 <div class="modal" id="menu-semanal" hidden>
   <div class="modal-overlay" data-modal-close></div>
@@ -551,16 +579,7 @@
     </div>
   </div>
 </div>
-    <footer class="modal-footer">
-      <a
-        class="btn btn-primary btn-full"
-        href="https://wa.me/59891640124?text=Hola%20PLATO!%20Quiero%20consultar%20el%20men%C3%BA%20semanal."
-        target="_blank"
-        rel="noopener"
-      >
-        Consultar por WhatsApp
-      </a>
-    </footer>
+    
   </div>
 </div>
 <!-- LIGHTBOX -->
