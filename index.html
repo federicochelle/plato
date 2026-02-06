@@ -215,35 +215,39 @@
   </div>
 </section>
 
-
- <!-- MENU -->
+<!-- MENU -->
 <section id="menu" class="section section-menu">
-
   <div class="container container-narrow stack-md">
     <header class="stack-xs">
       <h2>Menú de hoy</h2>
-      <p class="text-muted" id="menu-date">Martes, 4 de febrero</p>
+      <p class="text-muted" id="menu-date"></p>
     </header>
 
     <article class="card menu-card stack-sm">
-      <h3 class="menu-title">Milanesa con cacio e pepe</h3>
+      <h3 class="menu-title" id="menu-tags"></h3>
 
-      <p class="menu-description">
-        Milanesa de pollo con pasta fresca en salsa cremosa de queso y pimienta.
-      </p>
+      <p class="menu-description" id="menu-desc"></p>
 
       <div class="menu-meta">
-        <span class="menu-price">$390</span>
+        <span class="menu-price" >$420</span>
 
-        <button class="btn btn-outline" type="button" data-modal-open="menu-semanal">
+        <button
+          class="btn btn-outline"
+          type="button"
+          data-modal-open="menu-semanal"
+          id="menu-open"
+        >
           Ver menú semanal
         </button>
       </div>
 
+      <p class="text-muted" id="menu-fallback" hidden></p>
+
       <div class="actions">
         <a
           class="btn btn-primary btn-full"
-          href="https://wa.me/59891640124"
+          id="menu-wa"
+        href="https://wa.me/59891640124"
           target="_blank"
           rel="noopener"
         >
@@ -499,15 +503,25 @@
     
   </div>
 </footer>
-    <!-- Modal: Menú semanal -->
+<!-- Modal: Menú semanal -->
 <div class="modal" id="menu-semanal" hidden>
   <div class="modal-overlay" data-modal-close></div>
 
-  <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="menu-semanal-title">
+  <div
+    class="modal-dialog"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="menu-semanal-title"
+  >
     <header class="modal-header">
       <h3 id="menu-semanal-title">Menú semanal</h3>
 
-      <button class="btn btn-outline modal-close" type="button" data-modal-close aria-label="Cerrar">
+      <button
+        class="btn btn-outline modal-close"
+        type="button"
+        data-modal-close
+        aria-label="Cerrar"
+      >
         ✕
       </button>
     </header>
@@ -515,34 +529,24 @@
     <div class="modal-body stack-sm">
       <p class="text-muted">Sujeto a cambios según disponibilidad.</p>
 
-      <div class="week-list stack-sm">
+      <!-- LISTA SEMANAL (JS INYECTA LOS DÍAS) -->
+      <div class="week-list stack-sm" id="menu-week">
+        <!-- EJEMPLO DE ESTRUCTURA (NO SE ESCRIBE A MANO)
         <div class="week-item">
-          <strong>Lunes</strong>
-          <span>— Milanesa con cacio e pepe</span>
-        </div>
+          <button class="week-header" type="button">
+            <strong>Lunes</strong>
+            <span>— Milanesa con cacio e pepe</span>
+          </button>
 
-        <div class="week-item">
-          <strong>Martes</strong>
-          <span>— Risotto de hongos</span>
+          <div class="week-desc text-muted" hidden>
+            Milanesa de pollo con pasta fresca en salsa cremosa de queso y pimienta.
+          </div>
         </div>
-
-        <div class="week-item">
-          <strong>Miércoles</strong>
-          <span>— Pollo al curry con arroz jazmín</span>
-        </div>
-
-        <div class="week-item">
-          <strong>Jueves</strong>
-          <span>— Paella urbana</span>
-        </div>
-
-        <div class="week-item">
-          <strong>Viernes</strong>
-          <span>— Pasta fresca con salsa roja</span>
-        </div>
+        -->
       </div>
     </div>
-
+  </div>
+</div>
     <footer class="modal-footer">
       <a
         class="btn btn-primary btn-full"
@@ -573,6 +577,7 @@
   </div>
 </div>
 <script src="js/app.js"></script>
+<script src="js/menu.js"></script>
     </div>
   </body>
 </html>
