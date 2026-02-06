@@ -351,7 +351,6 @@ svg {
     bottom: 3rem;
   }
 }
-
 /* =========================
    MODAL
 ========================= */
@@ -360,6 +359,10 @@ svg {
   position: fixed;
   inset: 0;
   z-index: 500;
+}
+
+.modal[hidden] {
+  display: none;
 }
 
 .modal-overlay {
@@ -380,34 +383,36 @@ svg {
   overflow: hidden;
 }
 
-.modal-header,
-.modal-footer {
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
   padding: 1rem 1.1rem;
   border-bottom: 1px solid var(--color-border);
-}
-
-.modal-footer {
-  border-bottom: none;
-  border-top: 1px solid var(--color-border);
 }
 
 .modal-body {
   padding: 1rem 1.1rem;
 }
 
-.modal-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
 .modal-close {
   padding: 0.45rem 0.7rem;
 }
 
+/* =========================
+   WEEK ACCORDION (FIX)
+========================= */
+
+.week-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
 .week-item {
   display: flex;
+  flex-direction: column; /* 🔑 CLAVE */
   gap: 0.5rem;
   padding: 0.75rem 0.85rem;
   border: 1px solid var(--color-border);
@@ -415,11 +420,93 @@ svg {
   background: rgba(0, 0, 0, 0.02);
 }
 
-.week-item strong {
+.week-header {
+  width: 100%; /* 🔑 clickable completo */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+
+  background: transparent;
+  border: 0;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+.week-header strong {
   min-width: 92px;
   color: var(--color-text);
 }
 
+.week-header span {
+  color: var(--color-muted);
+  flex: 1;
+}
+
+.week-desc {
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+/* =========================
+   WEEK HEADER – layout
+========================= */
+
+.week-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto; /* día | tag | flecha */
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Tag a la derecha */
+.week-header span {
+  justify-self: end;
+  color: var(--color-muted);
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+/* =========================
+   Flecha ▼
+========================= */
+
+.week-header::after {
+  content: "▾";
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  transition: transform 0.2s ease;
+}
+
+/* Flecha rota cuando está abierto */
+.week-header[aria-expanded="true"]::after {
+  transform: rotate(180deg);
+}
+
+/* =========================
+   ACORDEÓN – ANIMACIÓN
+========================= */
+
+.week-desc {
+  overflow: hidden;
+  transition:
+    max-height 0.45s ease,
+    opacity 0.35s ease;
+  opacity: 1;
+}
+
+/* Estado cerrado */
+.week-desc[hidden] {
+  display: block; /* IMPORTANTE para animar */
+  max-height: 0;
+  opacity: 0;
+}
+
+/* Estado abierto */
+.week-desc:not([hidden]) {
+  max-height: 200px; /* suficiente para tus textos */
+  opacity: 1;
+}
 /* =========================
    LIGHTBOX
 ========================= */
