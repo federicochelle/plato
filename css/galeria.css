@@ -63,7 +63,7 @@
   bottom: 0.6rem;
 
   padding: 0.4rem 0.6rem;
-  border-radius: 999px; /* pill está bien */
+  border-radius: 0;
   background: rgba(0, 0, 0, 0.55);
 
   color: #fff;
@@ -109,7 +109,7 @@
   }
 
   .gallery-track {
-    grid-auto-columns: 26%; /* 🔥 más chico en desktop */
+    grid-auto-columns: 24%; /* 🔥 más chico en desktop */
     margin-left: 0;
     margin-right: 0;
   }
