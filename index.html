@@ -218,12 +218,16 @@
 <!-- MENU -->
 <section id="menu" class="section section-menu">
   <div class="container container-narrow stack-md">
+    
     <header class="stack-xs">
       <h2>Menú de hoy</h2>
       <p class="text-muted" id="menu-date"></p>
     </header>
 
     <article class="card menu-card stack-sm">
+      <p class="menu-loading text-muted" id="menu-loading" aria-live="polite">
+  Cargando menú…
+</p>
       <h3 class="menu-title" id="menu-tags"></h3>
 
       <p class="menu-description" id="menu-desc"></p>

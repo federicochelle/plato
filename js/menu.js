@@ -125,8 +125,13 @@ function showTodayFallback(msg) {
     elFallback.textContent = msg;
     elFallback.hidden = false;
   }
+  const loadingEl = document.getElementById("menu-loading");
+  if (loadingEl) loadingEl.hidden = true;
 }
 async function loadMenu() {
+  const loadingEl = document.getElementById("menu-loading");
+  if (loadingEl) loadingEl.hidden = false;
+
   try {
     const res = await fetch(MENU_API_URL, { cache: "no-store" });
     if (!res.ok) throw new Error("No se pudo cargar el menú");
@@ -154,19 +159,16 @@ async function loadMenu() {
     setupStrictAccordion();
 
     // 2) Semana vigente basada en la Sheet
-    const start = new Date(data.semana_inicio); // lunes cargado por el cliente
+    const start = new Date(data.semana_inicio);
     const today = new Date();
 
-    // Si la semana todavía no empezó
     if (today < start) {
       showTodayFallback(`El menú se publica desde el ${formatDateES(start)}.`);
       return;
     }
 
-    // Diferencia de días desde el lunes de la semana (0=lunes)
     const diffDays = Math.floor((today - start) / (1000 * 60 * 60 * 24));
 
-    // Sábado/Domingo o fuera de rango
     if (diffDays < 0 || diffDays > 4) {
       showTodayFallback("Hoy no abrimos.");
       return;
@@ -174,14 +176,13 @@ async function loadMenu() {
 
     const item = data.menu[diffDays];
     const tags = stripTags(item?.tags);
-    const desc = safeText(item?.descripcion); // si no tenés safeText, lo cambio abajo
+    const desc = safeText(item?.descripcion);
 
     if (!tags && !desc) {
       showTodayFallback("Hoy no hay menú publicado.");
       return;
     }
 
-    // Fecha que mostramos (coherente con start + diffDays)
     const shownDate = new Date(start);
     shownDate.setDate(start.getDate() + diffDays);
 
@@ -190,6 +191,9 @@ async function loadMenu() {
       tags: tags || "Menú a confirmar",
       desc: desc || "",
     });
+
+    // ✅ ocultar loader cuando está todo OK
+    if (loadingEl) loadingEl.hidden = true;
   } catch (err) {
     console.error("Error cargando menú:", err);
     showTodayFallback("Hoy no pudimos cargar el menú. Probá más tarde.");
