@@ -15,10 +15,14 @@
 
 /* Card especial */
 .menu-card {
-  padding: 1rem 1rem;
-  border: 1px solid var(--color-border);
-  border-radius: 0;
-  background: rgba(0, 0, 0, 0.075);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* separaciones prolijas */
+}
+
+/* El bloque de acciones siempre abajo */
+.menu-meta {
+  margin-top: auto; /* 🔑 mantiene el botón en su lugar */
 }
 
 /* Título del plato */
@@ -68,4 +72,12 @@
   100% {
     opacity: 0.35;
   }
+}
+#menu-fallback {
+  text-align: center;
+  font-size: 1.05rem; /* un poco más grande */
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0.5rem 0 0.75rem;
+  padding-top: 0;
 }
