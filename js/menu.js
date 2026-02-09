@@ -103,12 +103,15 @@ function paintToday({ dateText, tags, desc }) {
   const elTags = document.getElementById("menu-tags");
   const elDesc = document.getElementById("menu-desc");
   const elFallback = document.getElementById("menu-fallback");
+  const elPrice = document.getElementById("menu-price");
 
   if (elDate) elDate.textContent = dateText;
   if (elTags) elTags.textContent = tags || "";
   if (elDesc) elDesc.textContent = desc || "";
 
   if (elFallback) elFallback.hidden = true;
+
+  if (elPrice) elPrice.style.display = "";
 }
 
 function showTodayFallback(msg) {
@@ -116,6 +119,7 @@ function showTodayFallback(msg) {
   const elTags = document.getElementById("menu-tags");
   const elDesc = document.getElementById("menu-desc");
   const elFallback = document.getElementById("menu-fallback");
+  const elPrice = document.getElementById("menu-price");
 
   if (elDate) elDate.textContent = formatDateES(new Date());
   if (elTags) elTags.textContent = "";
@@ -125,8 +129,11 @@ function showTodayFallback(msg) {
     elFallback.textContent = msg;
     elFallback.hidden = false;
   }
+
   const loadingEl = document.getElementById("menu-loading");
   if (loadingEl) loadingEl.hidden = true;
+
+  if (elPrice) elPrice.style.display = "none";
 }
 async function loadMenu() {
   const loadingEl = document.getElementById("menu-loading");
@@ -170,7 +177,9 @@ async function loadMenu() {
     const diffDays = Math.floor((today - start) / (1000 * 60 * 60 * 24));
 
     if (diffDays < 0 || diffDays > 4) {
-      showTodayFallback("Hoy no abrimos.");
+      showTodayFallback(
+        "Hoy no abrimos. Nos volvemos a encontrar el próximo lunes.",
+      );
       return;
     }
 
