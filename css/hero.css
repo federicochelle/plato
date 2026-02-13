@@ -7,11 +7,10 @@
   min-height: 72vh; /* más corto */
   padding-block: 4rem;
 
-  background-image: url("../assets/plato.jpg");
+  background-image: url("../assets/hero.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: var(--color--b);
   display: flex;
   align-items: center;
 

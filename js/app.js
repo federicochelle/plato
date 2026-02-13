@@ -120,7 +120,7 @@ document.addEventListener("keydown", (e) => {
 });
 
 (() => {
-  const AUTOPLAY_MS = 3500;
+  const AUTOPLAY_MS = 5500;
 
   // =====================================================
   // CAROUSEL (autoplay + flechas + loop)

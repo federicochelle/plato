@@ -195,3 +195,9 @@
 .z-100 {
   z-index: 100;
 }
+
+.gallery-full {
+  width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
