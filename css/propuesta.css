@@ -1,6 +1,25 @@
+.propuesta-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+
+  /* upgrade visual */
+  padding: 1rem;
+  border-radius: 0;
+
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(24, 38, 24, 0.1);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.1);
+}
+
+.section-propuesta-preview {
+  text-align: center;
+}
 .section-propuesta-preview .text-muted {
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   line-height: 1.75;
+  margin-top: 2rem;
 }
 
 .section-propuesta-preview .actions {
@@ -29,5 +48,6 @@
 .section-propuesta-preview .actions {
   flex-shrink: 0;
   white-space: nowrap;
-  align-self: flex-end;
+  align-self: center;
+  margin-top: 1rem;
 }

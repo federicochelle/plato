@@ -119,42 +119,223 @@ document.addEventListener("keydown", (e) => {
   if (modal) closeModal(modal);
 });
 
-// =========================
-// LIGHTBOX
-// =========================
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightbox-image");
+(() => {
+  const AUTOPLAY_MS = 3500;
 
-function openLightbox(src, alt = "") {
-  if (!lightbox || !lightboxImg) return;
-  lightboxImg.src = src;
-  lightboxImg.alt = alt;
-  lightbox.hidden = false;
-  document.body.style.overflow = "hidden";
-}
+  // =====================================================
+  // CAROUSEL (autoplay + flechas + loop)
+  // =====================================================
+  const getIndexFromScroll = (track) => {
+    const w = track.clientWidth || 1;
+    return Math.round(track.scrollLeft / w);
+  };
 
-function closeLightbox() {
-  if (!lightbox) return;
-  lightbox.hidden = true;
-  lightboxImg.src = "";
-  document.body.style.overflow = "";
-}
+  const scrollToIndex = (track, index, smooth = true) => {
+    const w = track.clientWidth || 1;
+    track.scrollTo({ left: w * index, behavior: smooth ? "smooth" : "auto" });
+  };
 
-document.addEventListener("click", (e) => {
-  const item = e.target.closest("[data-lightbox]");
-  if (item) {
-    const img = item.querySelector("img");
-    openLightbox(item.dataset.lightbox, img?.alt || "");
-    return;
-  }
+  document.querySelectorAll(".gallery-track").forEach((track) => {
+    const slides = Array.from(track.querySelectorAll(".gallery-slide"));
+    if (slides.length <= 1) return;
 
-  if (e.target.closest("[data-lightbox-close]")) {
-    closeLightbox();
-  }
-});
+    const wrap = track.closest(".gallery-wrap") || track.parentElement;
+    const prevBtn = wrap?.querySelector(".gallery-prev");
+    const nextBtn = wrap?.querySelector(".gallery-next");
 
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && lightbox && !lightbox.hidden) {
-    closeLightbox();
-  }
-});
+    const next = (smooth = true) => {
+      const i = getIndexFromScroll(track);
+      if (i >= slides.length - 1) {
+        scrollToIndex(track, 0, false);
+        requestAnimationFrame(() => scrollToIndex(track, 0, smooth));
+      } else {
+        scrollToIndex(track, i + 1, smooth);
+      }
+    };
+
+    const prev = (smooth = true) => {
+      const i = getIndexFromScroll(track);
+      if (i <= 0) {
+        scrollToIndex(track, slides.length - 1, false);
+        requestAnimationFrame(() =>
+          scrollToIndex(track, slides.length - 1, smooth),
+        );
+      } else {
+        scrollToIndex(track, i - 1, smooth);
+      }
+    };
+
+    // flechas
+    prevBtn?.addEventListener("click", () => {
+      stop();
+      prev(true);
+      start();
+    });
+
+    nextBtn?.addEventListener("click", () => {
+      stop();
+      next(true);
+      start();
+    });
+
+    // autoplay + pausa
+    let timer = null;
+    let paused = false;
+
+    const start = () => {
+      stop();
+      timer = setInterval(() => {
+        if (!paused) next(true);
+      }, AUTOPLAY_MS);
+    };
+
+    const stop = () => {
+      if (timer) clearInterval(timer);
+      timer = null;
+    };
+
+    const pause = () => (paused = true);
+    const resume = () => (paused = false);
+
+    wrap?.addEventListener("mouseenter", pause);
+    wrap?.addEventListener("mouseleave", resume);
+
+    track.addEventListener("pointerdown", pause, { passive: true });
+    track.addEventListener("pointerup", resume, { passive: true });
+    track.addEventListener("touchstart", pause, { passive: true });
+    track.addEventListener("touchend", resume, { passive: true });
+
+    track.addEventListener(
+      "scroll",
+      () => {
+        pause();
+        clearTimeout(track.__scrollTO);
+        track.__scrollTO = setTimeout(resume, 350);
+      },
+      { passive: true },
+    );
+
+    window.addEventListener("resize", () => {
+      const i = getIndexFromScroll(track);
+      scrollToIndex(track, i, false);
+    });
+
+    start();
+  });
+
+  // =====================================================
+  // LIGHTBOX (global) — compatible con data-lightbox
+  // =====================================================
+  const modal = document.getElementById("lightbox");
+  if (!modal) return;
+
+  const imgEl = modal.querySelector(".lb-img");
+  const titleEl = modal.querySelector(".lb-title");
+  const descEl = modal.querySelector(".lb-desc");
+  const waEl = modal.querySelector("#lb-wa");
+  const btnPrev = modal.querySelector(".lb-prev");
+  const btnNext = modal.querySelector(".lb-next");
+
+  let items = [];
+  let currentIndex = 0;
+  let lastFocus = null;
+
+  const collectItems = () => {
+    items = Array.from(document.querySelectorAll("[data-lightbox]"));
+  };
+
+  const render = () => {
+    const item = items[currentIndex];
+    if (!item) return;
+
+    const src =
+      item.getAttribute("data-lightbox") || item.getAttribute("data-src") || "";
+    const title =
+      item.getAttribute("data-title") ||
+      item.querySelector(".gallery-cap")?.textContent?.trim() ||
+      item.querySelector("img")?.alt ||
+      "";
+    const desc = item.getAttribute("data-desc") || "";
+
+    imgEl.src = src;
+    imgEl.alt = title || "Imagen";
+    titleEl.textContent = title;
+    descEl.textContent = desc;
+
+    if (waEl) {
+      const phone = "59891640124";
+      const msg = encodeURIComponent(`Hola! Quiero pedir: ${title}.`);
+      waEl.href = `https://wa.me/${phone}?text=${msg}`;
+    }
+  };
+
+  const openAt = (index) => {
+    collectItems();
+    if (items.length === 0) return;
+    currentIndex = (index + items.length) % items.length;
+
+    render();
+
+    modal.hidden = false;
+    document.documentElement.style.overflow = "hidden";
+    lastFocus = document.activeElement;
+    modal.querySelector(".lb-close")?.focus();
+  };
+
+  const close = () => {
+    modal.hidden = true;
+    document.documentElement.style.overflow = "";
+    if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus();
+  };
+
+  const go = (dir) => {
+    collectItems();
+    if (items.length === 0) return;
+    currentIndex = (currentIndex + dir + items.length) % items.length;
+    render();
+  };
+
+  // abrir
+  document.addEventListener("click", (e) => {
+    const item = e.target.closest?.("[data-lightbox]");
+    if (!item) return;
+    e.preventDefault();
+
+    collectItems();
+    const idx = items.indexOf(item);
+    openAt(idx);
+  });
+
+  // cerrar overlay / data-close
+  modal.addEventListener("click", (e) => {
+    if (e.target.matches("[data-close]")) close();
+  });
+
+  btnPrev?.addEventListener("click", () => go(-1));
+  btnNext?.addEventListener("click", () => go(1));
+
+  document.addEventListener("keydown", (e) => {
+    if (modal.hidden) return;
+    if (e.key === "Escape") close();
+    if (e.key === "ArrowLeft") go(-1);
+    if (e.key === "ArrowRight") go(1);
+  });
+
+  // swipe en el modal
+  let x0 = null;
+  imgEl?.addEventListener("touchstart", (e) => (x0 = e.touches[0].clientX), {
+    passive: true,
+  });
+  imgEl?.addEventListener(
+    "touchend",
+    (e) => {
+      if (x0 == null) return;
+      const x1 = e.changedTouches[0].clientX;
+      const dx = x1 - x0;
+      x0 = null;
+      if (Math.abs(dx) < 35) return;
+      go(dx > 0 ? -1 : 1);
+    },
+    { passive: true },
+  );
+})();

@@ -1,0 +1,317 @@
+/* =========================
+   CAROUSEL (1 por vez)
+========================= */
+
+.process-inner {
+  max-width: 980px;
+  margin-inline: auto;
+}
+
+.strips {
+  display: grid;
+  gap: 1.1rem;
+}
+
+/* Contenedor del carrusel */
+.strip-carousel {
+  position: relative;
+  height: 210px;
+  border-radius: 14px;
+  overflow: hidden; /* no se ve la siguiente */
+  isolation: isolate;
+}
+
+/* Track: 1 slide por vista, swipe nativo */
+.strip-track {
+  height: 100%;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+
+  overflow-x: auto;
+
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+
+  scrollbar-width: none;
+}
+.strip-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Slide */
+.strip-item {
+  position: relative;
+  height: 100%;
+  scroll-snap-align: start;
+  cursor: pointer;
+  z-index: 0;
+}
+
+/* Imagen */
+.strip-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 1;
+}
+
+/* Caption automático (coincide siempre con el lightbox) */
+.strip-item::after {
+  content: attr(data-title);
+
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 10px;
+  z-index: 2;
+  font-size: 0.85rem;
+  letter-spacing: 0.01em;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.95);
+
+  padding: 0.4rem 0.65rem;
+  border-radius: 10px;
+
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0.15) 100%
+  );
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+}
+
+/* =========================
+   FLECHAS CARRUSEL
+========================= */
+
+.car-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(6px);
+
+  display: grid;
+  place-items: center;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.car-btn:hover {
+  transform: translateY(-50%) scale(1.05);
+}
+.car-btn:active {
+  transform: translateY(-50%) scale(0.96);
+}
+
+/* focus accesible */
+.car-btn:focus-visible {
+  outline: 2px solid rgba(24, 38, 24, 0.55);
+  outline-offset: 2px;
+}
+
+.car-prev {
+  left: 10px;
+}
+.car-next {
+  right: 10px;
+}
+
+/* =========================
+   MOBILE (iPhone SE)
+========================= */
+
+@media (max-width: 520px) {
+  .strip-carousel {
+    height: 190px;
+  }
+
+  .car-btn {
+    width: 34px;
+    height: 34px;
+    font-size: 22px;
+    opacity: 0.92;
+  }
+
+  .strip-item::after {
+    font-size: 0.8rem;
+    left: 10px;
+    right: 10px;
+    bottom: 9px;
+  }
+}
+
+/* =========================
+   LIGHTBOX / MODAL
+========================= */
+
+.lightbox[hidden] {
+  display: none;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+}
+
+.lightbox-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+/* Panel */
+.lightbox-panel {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  width: min(920px, 92vw);
+  max-height: 86vh;
+
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 16px;
+  overflow: hidden;
+
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+}
+
+/* Cerrar */
+.lb-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  z-index: 6;
+
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+
+  font-size: 24px;
+  line-height: 1;
+}
+
+.lb-close:focus-visible {
+  outline: 2px solid rgba(24, 38, 24, 0.55);
+  outline-offset: 2px;
+}
+
+/* Flechas modal */
+.lb-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 6;
+
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+
+  font-size: 28px;
+  line-height: 1;
+}
+
+.lb-nav:focus-visible {
+  outline: 2px solid rgba(24, 38, 24, 0.55);
+  outline-offset: 2px;
+}
+
+.lb-prev {
+  left: 10px;
+}
+.lb-next {
+  right: 10px;
+}
+
+/* Contenido */
+.lb-figure {
+  margin: 0;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  max-height: 86vh;
+}
+
+.lb-img {
+  width: 100%;
+  height: min(62vh, 520px);
+  object-fit: cover;
+  display: block;
+}
+
+.lb-caption {
+  padding: 1rem 1.05rem 1.15rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.lb-title {
+  margin: 0 0 0.35rem;
+  letter-spacing: -0.02em;
+}
+
+.lb-desc {
+  margin: 0 0 0.9rem;
+  opacity: 0.9;
+  line-height: 1.5;
+  max-width: 70ch;
+}
+
+.lb-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* Mobile modal: mejor para iPhone SE */
+@media (max-width: 520px) {
+  .lightbox-panel {
+    width: 92vw;
+    max-height: 90vh;
+    border-radius: 14px;
+  }
+
+  .lb-img {
+    height: min(52vh, 420px);
+  }
+
+  .lb-nav {
+    width: 38px;
+    height: 38px;
+    font-size: 24px;
+  }
+
+  .lb-close {
+    width: 38px;
+    height: 38px;
+  }
+}

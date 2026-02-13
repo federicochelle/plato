@@ -5,17 +5,32 @@
 
 /* 1) Fondo editorial global (JPG) */
 body {
-  background: url(../assets/fondooo.jpeg);
   background-position: left;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 :root {
-  /* PLATO – tema editorial */
-  --color-bg: #f6f2ea; /* papel */
-  --color-bg-soft: #efe9dd; /* banda suave */
-  --color-surface: #ffffff; /* cards */
+  --color--a: #efe9dd;
+  --color--b: #121212;
+
+  --color-bg: var(--color--a);
+  --color-bg-soft: var(--color--a);
+  --color-surface: var(--color--a);
+
+  --color-text: var(--color--b);
+  --color-text-muted: var(--color--b);
+  --color-border: var(--color--b);
+
+  --color-primary: var(--color--b);
+  --color-primary-dark: var(--color--b);
+
+  --header-bg: var(--color--a);
+  --overlay-bg: rgba(20, 20, 20, 0.75);
+  /* PLATO – tema editorial 
+  --color-bg: #f6f2ea;  papel 
+  --color-bg-soft: #efe9dd;  banda suave 
+  --color-surface: #ffffff;  cards 
 
   --color-text: #121212;
   --color-text-muted: #5b5b5b;
@@ -24,8 +39,8 @@ body {
   --color-primary: #6b6a3a;
   --color-primary-dark: #4f4e2c;
 
-  --header-bg: rgba(246, 242, 234, 0.92); /* 👈 PLATO header */
-  --overlay-bg: rgba(20, 20, 20, 0.75);
+  --header-bg: rgba(246, 242, 234, 0.92); PLATO header 
+  --overlay-bg: rgba(20, 20, 20, 0.75);*/
 }
 
 /* 2) Levantamos TODO el contenido (solución limpia a “se superpone”) */
