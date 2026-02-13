@@ -10,8 +10,43 @@
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }
+.gallery-wrap {
+  position: relative;
+}
+.gallery-wrap::before,
+.gallery-wrap::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  pointer-events: none;
+  z-index: 5;
+}
 
-/* Track: 1 slide por vista */
+/* Sombra superior */
+.gallery-wrap::before,
+.gallery-wrap::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* ARRIBA — ahora difumina hacia arriba (afuera) */
+.gallery-wrap::before {
+  top: -40px;
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.28));
+}
+
+/* ABAJO — ahora difumina hacia abajo (afuera) */
+.gallery-wrap::after {
+  bottom: -40px;
+  background: linear-gradient(to top, transparent, rgba(0, 0, 0, 0.28));
+} /* Track: 1 slide por vista */
 .gallery-track {
   display: grid;
   grid-auto-flow: column;

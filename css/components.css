@@ -47,8 +47,9 @@
 .btn-primary {
   background: var(--color-primary);
   color: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.12);
+  border: var(--color--a);
   box-shadow: var(--shadow-sm);
+  border-color: var(--color--a);
 }
 
 .btn-primary:hover {
@@ -242,70 +243,69 @@ svg {
   object-fit: cover;
 }
 
-/* =========================
-   FOOTER
-========================= */
-
+/* -------------------------
+   Section Footer
+------------------------- */
 .footer {
-  padding-block: 2rem;
-  border-top: 1px solid var(--color-border);
-  background: black;
-  display: flex;
+  background-color: var(--color--b);
+  padding: var(--space-lg) 0;
+  color: var(--color--a);
 }
 
 .footer-inner {
+  display: grid;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+/* Desktop */
+@media (min-width: 900px) {
+  .footer-inner {
+    grid-template-columns: 1.2fr auto auto;
+  }
+}
+
+.footer-brand {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
+  gap: var(--space-sm);
 }
 
-/* Texto */
-.footer-brand {
+.footer-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.footer-name {
+  display: block;
+  letter-spacing: 0.02em;
+}
+
+.footer-muted {
+  margin-top: 1rem;
+  color: var(--color--a);
+  font-size: 0.95rem;
+}
+
+.footer-instagram {
+  white-space: nowrap;
+}
+
+.footer-copy {
+  margin: 0;
+  color: var(--color--a);
   font-size: 0.9rem;
-  color: var(--color-text-muted);
-}
-
-.footer-brand strong {
-  color: var(--color-text-muted);
-  font-weight: var(--font-weight-bold);
-}
-
-.footer-sep {
-  margin-inline: 0.35rem;
-  opacity: 0.6;
-}
-
-/* Links */
-.footer-links {
-  display: flex;
-  gap: 1.25rem;
-}
-
-.footer-links a {
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
-  text-decoration: none;
-  transition: color var(--transition-fast);
-}
-
-.footer-links a:hover {
-  color: var(--color-text);
 }
 
 /* Mobile */
-@media (max-width: 600px) {
+@media (max-width: 899px) {
   .footer-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.75rem;
-  }
-
-  .footer-links {
-    gap: 1rem;
+    text-align: center;
+    justify-items: center;
   }
 }
+
 /* =========================
    WHATSAPP STICKY BUTTON
 ========================= */
@@ -381,7 +381,7 @@ svg {
 .modal-dialog {
   position: relative;
   z-index: 1;
-
+  font-size: 0.95rem;
   width: min(720px, 100%);
   background: var(--color-surface);
   border: 1px solid var(--color-border);
@@ -415,7 +415,7 @@ svg {
 /* Body scrolleable */
 .modal-body {
   padding: 1rem 1.1rem;
-
+  background-color: var(--color--a);
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
@@ -433,7 +433,16 @@ svg {
   background: transparent;
   border: 1px solid var(--color-border);
 }
-
+#menu-semanal .modal-dialog {
+  font-size: 0.92rem;
+}
+#menu-semanal .modal-header h3 {
+  font-size: 1.15rem;
+  line-height: 1.15;
+}
+#menu-semanal .modal-body .text-muted {
+  font-size: 0.88rem;
+}
 /* Mobile */
 @media (max-width: 480px) {
   .modal {
@@ -452,7 +461,7 @@ svg {
 }
 
 /* =========================
-   WEEK ACCORDION (FIX)
+   WEEK ACCORDION (LIMPIO)
 ========================= */
 
 .week-list {
@@ -463,61 +472,101 @@ svg {
 
 .week-item {
   display: flex;
-  flex-direction: column; /* 🔑 CLAVE */
+  flex-direction: column;
   gap: 0.5rem;
+
   padding: 0.75rem 0.85rem;
-  border: 1px solid var(--color-border);
+
   border-radius: var(--radius-md);
   background: rgba(0, 0, 0, 0.02);
 }
 
+/* Botón fila: día | texto | flecha */
 .week-header {
-  width: 100%; /* 🔑 clickable completo */
-  display: flex;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 6.6rem 1fr auto;
   align-items: center;
-  justify-content: space-between;
   gap: 0.75rem;
-  color: var(--color-text);
+
   background: transparent;
   border: 0;
   padding: 0;
   text-align: left;
   cursor: pointer;
-}
-
-.week-header strong {
-  min-width: 92px;
   color: var(--color-text);
 }
 
-.week-header span {
-  color: var(--color-muted);
-  flex: 1;
-}
-
-.week-desc {
-  font-size: 0.95rem;
-  line-height: 1.45;
-}
-/* =========================
-   WEEK HEADER – layout
-========================= */
-
-.week-header {
-  display: grid;
-  grid-template-columns: auto 1fr auto; /* día | tag | flecha */
-  align-items: center;
-  gap: 0.75rem;
-}
-
-/* Tag a la derecha */
-.week-header span {
-  justify-self: end;
-  color: var(--color-muted);
-  font-size: 0.95rem;
+/* Día (izq) */
+.week-header strong {
   white-space: nowrap;
+  font-weight: 800;
 }
 
+/* Texto (der) pegado a la derecha + “…” */
+.week-header span {
+  min-width: 0;
+  justify-self: end;
+  text-align: right;
+
+  color: var(--color-muted);
+  font-size: 0.75rem;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Flecha */
+.week-header::after {
+  content: "▾";
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  transition: transform 0.2s ease;
+}
+
+.week-header[aria-expanded="true"]::after {
+  transform: rotate(180deg);
+}
+
+/* Descripción */
+.week-desc {
+  font-size: 0.92rem;
+  line-height: 1.45;
+
+  overflow: hidden;
+  transition:
+    max-height 0.35s ease,
+    opacity 0.25s ease;
+  max-height: 240px;
+  opacity: 1;
+}
+
+/* Cerrado (con hidden) */
+.week-desc[hidden] {
+  display: block;
+  max-height: 0;
+  opacity: 0;
+}
+
+/* Mobile: letras más chicas */
+@media (max-width: 480px) {
+  .week-item {
+    padding: 0.7rem 0.75rem;
+  }
+
+  .week-header {
+    grid-template-columns: 6.1rem 1fr auto;
+  }
+
+  .week-header span {
+    font-size: 0.6rem;
+  }
+
+  .week-desc {
+    font-size: 0.9rem;
+  }
+}
 /* =========================
    Flecha ▼
 ========================= */

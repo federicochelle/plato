@@ -1,54 +1,66 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Propuesta gastronómica | PLATO</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- (Opcional) Tipografía editorial -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
-      rel="stylesheet"
-    />
+  <title>PLATO | Menú diario en el Centro de Montevideo</title>
+  <meta
+    name="description"
+    content="Cocina cotidiana con criterio gourmet. Menú diario, producto de estación y una propuesta que se renueva en pleno Centro de Montevideo."
+  />
 
-    <!-- Tu CSS -->
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/overrides.css" />
-    <link rel="stylesheet" href="css/propuestapage.css" />
-  </head>
+  <link rel="canonical" href="https://federicochelle.github.io/plato/" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cutive&display=swap" rel="stylesheet">
+
+  <link rel="icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_UY" />
+  <meta property="og:site_name" content="PLATO" />
+  <meta property="og:url" content="https://federicochelle.github.io/plato/" />
+  <meta property="og:title" content="PLATO — Un almuerzo distinto cada día" />
+  <meta
+    property="og:description"
+    content="Cocina cotidiana con criterio gourmet. Menú diario, producto de estación y una propuesta que se renueva en pleno Centro de Montevideo."
+  />
+  <meta
+    property="og:image"
+    content="https://federicochelle.github.io/plato/assets/open.jpg"
+  />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta
+    property="og:image:alt"
+    content="PLATO — Cocina cotidiana con propuesta diaria en Montevideo"
+  />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="PLATO — Un almuerzo distinto cada día" />
+  <meta
+    name="twitter:description"
+    content="Cocina cotidiana con criterio gourmet. Menú diario, producto de estación y una propuesta que se renueva en pleno Centro de Montevideo."
+  />
+  <meta
+    name="twitter:image"
+    content="https://federicochelle.github.io/plato/assets/open.jpg"
+  />
+
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/propuestapage.css">
+</head>
 
   <body>
     <div class="page" id="top">
      <!-- Header -->
 <header class="site-header" >
-  <section class="info-strip">
-  <div class="container info-strip-inner">
-    <a
-  href="https://search.google.com/local/reviews?placeid=ChIJ72a1DeyBn5URlrzokHn5jHQ"
-  target="_blank"
-  rel="noopener"
-  class="info-item info-google"
->
- <svg
-  class="icon icon-star"
-  viewBox="0 0 24 24"
-  aria-hidden="true"
->
-  <path
-    d="M12 3l2.9 6 6.6.6-5 4.4 1.5 6.4L12 17l-6 3.4L7.5 14 2.5 9.6 9 9z"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="1.6"
-  />
-</svg><strong> 4.9 en Google</strong>
-</a>
-    <span class="info-dot" aria-hidden="true"></span>
-    <span class="info-item">L–V · 11:00–16:00</span>
-    
-  </div>
-</section>
   
   <div class="container flex flex-between flex-wrap header-inner">
     <!-- Brand -->
@@ -173,11 +185,26 @@
       </a>
     </nav>
   </div>
-</header><!-- HERO -->
+</header>
+
+<svg class="bg-scribble" viewBox="0 0 1200 6000" preserveAspectRatio="none" aria-hidden="true">
+  <path id="bgScribblePath"
+    d="
+      M 200 0
+      C 500 250, 1400 500, 900 900
+      S -200 1500, 400 1900
+      S 1500 2500, 700 3000
+      S -300 3700, 450 4200
+      S 1300 5000, 300 6000
+    "
+  />
+</svg>
+
+<!-- HERO -->
 <section class="section section-propuesta-hero">
   <div class="container container-narrow stack-md">
     <header class="stack-xs">
-      <p class="text-muted">PLATO · Propuesta gastronómica</p>
+      <p class="text-muted"></p>
       <h1>Una cocina cotidiana, pensada con criterio gourmet</h1>
     </header>
 
@@ -191,7 +218,7 @@
     <!-- Imagen 1 (hero) -->
     <figure class="propuesta-media propuesta-center">
       <img
-        src="assets/plato.jpg"
+        src="assets/open.jpg"
         alt="Plato servido con presentación minimalista"
         loading="lazy"
       />
@@ -203,7 +230,7 @@
 </section>
 
 <!-- FILOSOFÍA -->
-<section class="section">
+<section class="section section-dos">
   <div class="container container-narrow stack-md">
     <h2>Nuestra forma de cocinar</h2>
 
@@ -271,7 +298,7 @@
 </section>
 
 <!-- PRODUCTO / ESTACIÓN -->
-<section class="section">
+<section class="section producto-estacion">
   <div class="container container-narrow stack-md">
     <h2>Producto de estación</h2>
 
@@ -364,13 +391,53 @@
         </section>
       </main>
 
-      <!-- FOOTER (reutilizá tu footer actual) -->
-      <footer class="footer">
-        <div class="container footer-inner">
-          <p><strong>PLATO</strong></p>
-      
+     
+   <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <img
+            class="footer-logo"
+            src="assets/logo.webp"
+            alt="Plato restaurante"
+          />
+          <div>
+            <strong class="footer-name">PLATO</strong>
+            <p class="footer-muted">Montevideo, Uruguay</p>
+          </div>
         </div>
-      </footer>
+
+        <a
+          class="btn btn-primary "
+          href="https://www.instagram.com/plato.mvd/"
+          target="_blank"
+          rel="noopener"
+        >
+          <svg
+            class="btn-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.25"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4l0 -8"
+            />
+            <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+            <path d="M16.5 7.5v.01" />
+          </svg>
+          Seguinos en Instagram
+        </a>
+
+      
+      </div>
+    </footer>
+   
     </div>
 
     <!-- (Opcional) Tu JS del menú mobile si ya lo tenés -->

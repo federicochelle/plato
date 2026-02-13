@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.9rem;
-
+  width: 100%;
   /* upgrade visual */
   padding: 1rem;
   border-radius: 0;
@@ -13,9 +13,11 @@
   box-shadow: 0 18px 44px rgba(0, 0, 0, 0.1);
 }
 
-.section-propuesta-preview {
+.section-propuesta-preview .propuesta-card {
   text-align: center;
+  width: 100%;
 }
+
 .section-propuesta-preview .text-muted {
   font-size: 0.95rem;
   line-height: 1.75;
