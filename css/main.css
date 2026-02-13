@@ -30,3 +30,7 @@
 ========================= */
 @import "overrides.css";
 @import "seccionmenu.css";
+
+.menu-card {
+  border-radius: 0;
+}
