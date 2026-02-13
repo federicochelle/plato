@@ -387,7 +387,7 @@
 </div>
  <!-- PROPUESTA -->
 <section id="propuesta" class="section section-propuesta-preview">
-  <div class="container container-narrow stack-lg">
+  
         <article class="card propuesta-card stack-sm">
     <header class="stack-xs">
       <h2>Variedad que cambia</h2>
@@ -405,7 +405,7 @@
         </a>
     </div>
     </article>
-  </div>
+  
 </section>
 
 <section class="gallery gallery-full">  
@@ -443,7 +443,7 @@
 </section>
 
 <!-- PRUEBA SOCIAL -->
- <section class="tapes" aria-label="Prensa y reseñas">
+ <section class="tapes" aria-label="Prensa y reseñas" id="prensa">
   <!-- Tira 1 -->
   <article class="tape" aria-label="Artículo de prensa 1">
     <p class="tape-kicker">La Diaria</p>
@@ -549,19 +549,52 @@
 </section>
 </main>
 
+   <!-- FOOTER -->
     <footer class="footer">
-  <div class="container footer-inner">
-    <p class="footer-brand">
-      <strong>PLATO</strong>
-      <span class="footer-sep">—</span>
-      San José 1186 · Montevideo
-    </p>
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <img
+            class="footer-logo"
+            src="assets/logo.webp"
+            alt="Plato restaurante"
+          />
+          <div>
+            <strong class="footer-name">PLATO</strong>
+            <p class="footer-muted">Montevideo, Uruguay</p>
+          </div>
+        </div>
 
-    
-     
-    
-  </div>
-</footer>
+        <a
+          class="btn btn-primary "
+          href="https://www.instagram.com/plato.mvd/"
+          target="_blank"
+          rel="noopener"
+        >
+          <svg
+            class="btn-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.25"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4l0 -8"
+            />
+            <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+            <path d="M16.5 7.5v.01" />
+          </svg>
+          Seguinos en Instagram
+        </a>
+
+      
+      </div>
+    </footer>
+   
 
 <!-- Modal: Menú semanal -->
 <div class="modal" id="menu-semanal" hidden>
@@ -587,27 +620,11 @@
     </header>
 
     <div class="modal-body stack-sm">
-      <p class="text-muted">Sujeto a cambios según disponibilidad.</p>
+      <p class="text-muted"></p>
 
       <!-- LISTA SEMANAL (JS INYECTA LOS DÍAS) -->
-      <div class="week-list stack-sm" id="menu-week">
-        <!-- EJEMPLO DE ESTRUCTURA (NO SE ESCRIBE A MANO)
-        <div class="week-item">
-          <button class="week-header" type="button">
-            <strong>Lunes</strong>
-            <span>— Milanesa con cacio e pepe</span>
-          </button>
-
-          <div class="week-desc text-muted" hidden>
-            Milanesa de pollo con pasta fresca en salsa cremosa de queso y pimienta.
-          </div>
-        </div>
-        -->
-      </div>
+      <div class="week-list stack-sm" id="menu-week"></div>
     </div>
-  </div>
-</div>
-    
   </div>
 </div>
 <!-- LIGHTBOX -->
