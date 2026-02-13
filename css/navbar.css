@@ -6,7 +6,7 @@
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 9999;
   background: var(--header-bg, rgba(11, 15, 20, 0.95));
   backdrop-filter: blur(10px);
 }

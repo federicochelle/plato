@@ -11,7 +11,7 @@ body {
 }
 
 :root {
-  --color--a: #efe9dd;
+  --color--a: #f4f0e9;
   --color--b: #121212;
 
   --color-bg: var(--color--a);
@@ -52,8 +52,10 @@ body {
 /* 3) Asegurar capas del header y overlays (si usás sticky + menú mobile) */
 .site-header {
   background: var(--header-bg);
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100; /* arriba del contenido */
 }
 
