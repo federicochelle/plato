@@ -12,12 +12,9 @@
 
   <link rel="canonical" href="https://federicochelle.github.io/plato/" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
-    rel="stylesheet"
-  />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cutive&display=swap" rel="stylesheet">
 
   <link rel="icon" href="favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
@@ -59,35 +56,20 @@
   <link rel="stylesheet" href="css/main.css" />
 </head>
   <body>
-    <div class="page" id="top">
+<svg class="bg-scribble" viewBox="0 0 1200 6000" preserveAspectRatio="none" aria-hidden="true">
+  <path id="bgScribblePath"
+    d="
+      M 200 0
+      C 500 250, 1400 500, 900 900
+      S -200 1500, 400 1900
+      S 1500 2500, 700 3000
+      S -300 3700, 450 4200
+      S 1300 5000, 300 6000
+    "
+  />
+</svg>
    <!-- Header -->
 <header class="site-header" >
-  <section class="info-strip">
-  <div class="container info-strip-inner">
-    <a
-  href="https://search.google.com/local/reviews?placeid=ChIJ72a1DeyBn5URlrzokHn5jHQ"
-  target="_blank"
-  rel="noopener"
-  class="info-item info-google"
->
- <svg
-  class="icon icon-star"
-  viewBox="0 0 24 24"
-  aria-hidden="true"
->
-  <path
-    d="M12 3l2.9 6 6.6.6-5 4.4 1.5 6.4L12 17l-6 3.4L7.5 14 2.5 9.6 9 9z"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="1.6"
-  />
-</svg><strong> 4.9 en Google</strong>
-</a>
-    <span class="info-dot" aria-hidden="true"></span>
-    <span class="info-item">L–V · 11:00–16:00</span>
-    
-  </div>
-</section>
   <div class="container flex flex-between flex-wrap header-inner">
     <!-- Brand -->
     <a class="brand brand-logo-only" href="#top" aria-label="PLATO – Ir al inicio">
@@ -212,19 +194,20 @@
 </header>
 
  <!-- HERO -->
-
+<div class="" ></div>
   <section class="section hero">
   <div class="container hero-inner">
     <div class="hero-copy">
-      <h1>Almuerzo resuelto.</h1>
+      <h1>PLATO</h1>
       <p class="lead">
-        Un sabor distinto cada día, en pleno Centro de Montevideo.
+        Cada dia, <br>
+        distinto.
       </p>
 
     
 
       <div class="actions">
-        <a class="btn btn-primary" href="#menu">Ver menú de hoy</a>
+     <!--   <a class="btn btn-primary" href="#menu">Ver menú de hoy</a>
         <a
           class="btn btn-outline"
           href="https://wa.me/59891640124"
@@ -232,7 +215,7 @@
           rel="noopener"
         >
           Pedir por WhatsApp
-        </a>
+        </a>-->
       </div>
     </div>
   </div>
@@ -272,7 +255,7 @@
 
       <div class="actions">
         <a
-          class="btn btn-primary btn-full"
+          class="btn btn-primary"
           id="menu-wa"
         href="https://wa.me/59891640124"
           target="_blank"
@@ -284,9 +267,129 @@
     </article>
   </div>
 </section>
+
+<!-- GALERÍA -->
+<div class="gallery stack-md">
+
+  <!-- Carrusel 1: Platos -->
+  <div class="gallery-block">
+    <div class="gallery-block-head">
+      <h3 class="gallery-title"></h3>
+    </div>
+
+    <div class="gallery-wrap">
+     
+      <div class="gallery-track" tabindex="0" aria-label="Carrusel: Platos">
+        <button class="gallery-slide" type="button"
+          data-lightbox="assets/pancito.jpg"
+          data-title="Plato del día"
+          data-desc="Producto de estación, hecho al momento. Simple, directo y bien resuelto.">
+          <img src="assets/pancito.jpg" alt="Plato del día servido" loading="lazy" />
+          <span class="gallery-cap">Plato del día</span>
+        </button>
+
+        <button class="gallery-slide" type="button"
+          data-lightbox="assets/plato.jpg"
+          data-title="Hoy"
+          data-desc="El menú cambia cada día. Una propuesta breve, cuidada y distinta.">
+          <img src="assets/plato.jpg" alt="Plato del día en primer plano" loading="lazy" />
+          <span class="gallery-cap">Hoy</span>
+        </button>
+
+        <button class="gallery-slide" type="button"
+          data-lightbox="assets/platito.jpg"
+          data-title="Variedad"
+          data-desc="Combinaciones distintas, técnicas distintas. Para que el mediodía no se repita.">
+          <img src="assets/platito.jpg" alt="Platos variados" loading="lazy" />
+          <span class="gallery-cap">Variedad</span>
+        </button>
+
+        <button class="gallery-slide" type="button"
+          data-lightbox="assets/cocinas.jpg"
+          data-title="Variedad"
+          data-desc="Un vistazo a la rotación del menú y a los platos que van saliendo.">
+          <img src="assets/cocinas.jpg" alt="Platos variados" loading="lazy" />
+          <span class="gallery-cap">Variedad</span>
+        </button>
+      </div>
+
+      </div>
+  </div>
+
+  <!-- Carrusel 2: Cocina & Local -->
+  <div class="gallery-block">
+    <div class="gallery-block-head">
+      <h3 class="gallery-title"></h3>
+    </div>
+
+    <div class="gallery-wrap">
+      
+      <div class="gallery-track" tabindex="0" aria-label="Carrusel: Cocina y local">
+        <button class="gallery-slide" type="button"
+          data-lightbox="assets/cocina.jpg"
+          data-title="Cocina"
+          data-desc="Oficio, ritmo y producto. Lo simple hecho con intención, todos los días.">
+          <img src="assets/cocina.jpg" alt="Detalle de cocina y emplatado" loading="lazy" />
+          <span class="gallery-cap">Cocina</span>
+        </button>
+
+        <button class="gallery-slide" type="button"
+          data-lightbox="assets/fachada.jpg"
+          data-title="Fachada"
+          data-desc="Estamos en el Centro. Entrás, pedís, y en minutos está pronto.">
+          <img src="assets/fachada.jpg" alt="Fachada o entrada de PLATO" loading="lazy" />
+          <span class="gallery-cap">Fachada</span>
+        </button>
+
+        <button class="gallery-slide" type="button"
+          data-lightbox="assets/fachada.jpg"
+          data-title="Local"
+          data-desc="Un espacio chico, cuidado y funcional. Pensado para el mediodía.">
+          <img src="assets/fachada.jpg" alt="Interior del local" loading="lazy" />
+          <span class="gallery-cap">Local</span>
+        </button>
+
+        <button class="gallery-slide" type="button"
+          data-lightbox="assets/cocinas.jpg"
+          data-title="Variedad"
+          data-desc="Imágenes del día a día: cocina, bandeja, mostrador y platos en rotación.">
+          <img src="assets/cocinas.jpg" alt="Platos variados" loading="lazy" />
+          <span class="gallery-cap">Variedad</span>
+        </button>
+      </div>
+
+      </div>
+  </div>
+
+</div>
+
+
+<!-- LIGHTBOX / MODAL -->
+<div class="lightbox" id="lightbox" hidden>
+  <div class="lightbox-overlay" data-close></div>
+
+  <div class="lightbox-panel" role="dialog" aria-modal="true" aria-label="Detalle">
+    <button class="lb-close" type="button" aria-label="Cerrar" data-close>×</button>
+
+    <button class="lb-nav lb-prev" type="button" aria-label="Anterior">‹</button>
+    <button class="lb-nav lb-next" type="button" aria-label="Siguiente">›</button>
+
+    <figure class="lb-figure">
+      <img class="lb-img" alt="" />
+      <figcaption class="lb-caption">
+        <h3 class="lb-title"></h3>
+        <p class="lb-desc"></p>
+        <a class="lb-cta" id="lb-wa" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+      </figcaption>
+    </figure>
+  </div>
+</div>  </div>
+</section>
+
  <!-- PROPUESTA -->
 <section id="propuesta" class="section section-propuesta-preview">
   <div class="container container-narrow stack-lg">
+        <article class="card propuesta-card stack-sm">
     <header class="stack-xs">
       <h2>Variedad que cambia</h2>
       <p class="text-muted">
@@ -298,176 +401,85 @@
     </header>
 
     <div class="actions">
-      <a class="press-link" href="page.html" target="_blank" rel="noopener">
+      <a class="btn btn-primary nav-cta" href="page.html" target="_blank" rel="noopener">
           <strong>Conocé más →</strong>
         </a>
     </div>
+    </article>
   </div>
 </section>
 
-
-<!-- PRUEBA SOCIAL -->
-  <section id="prensa" class="section section-press">
-  <div class="container container-narrow stack-lg">
-    <header class="stack-xs">
-      <h2>En los medios</h2>
-      <p class="text-muted">
-        PLATO fue destacado por medios de referencia en Montevideo.
-      </p>
-    </header>
-
-    <div class="grid grid-2">
-      <!-- Nota 1 -->
-      <article class="press-card stack-sm">
-        <span class="press-source">El País Uruguay</span>
-        <h3 class="press-title">
-          Plato, la innovadora propuesta gastronómica urbana en pleno centro
-        </h3>
-        <p class="press-excerpt">
-          Una cocina abierta a la calle que sorprende con un menú que cambia
-          todos los días y mantiene una identidad clara.
-        </p>
-
-        <a class="press-link" href="https://www.elpais.com.uy/el-empresario/plato-la-innovadora-propuesta-gastronomica-urbana-en-pleno-centro-montevideano-que-sorprende-semana-a-semana" target="_blank" rel="noopener">
-         <strong> Leer nota →</strong>
-        </a>
-      </article>
-
-      <!-- Nota 2 -->
-      <article class="press-card stack-sm">
-        
-        <span class="press-source">La Diaria</span>
-        <h3 class="press-title">
-          Plato: la carta más breve y más cambiante
-        </h3>
-        <p class="press-excerpt">
-          Dos cocineros jóvenes despachan una única preparación diaria,
-          enfocada en el producto y el ritmo urbano.
-        </p>
-
-        <a class="press-link" href="https://ladiaria.com.uy/cotidiana/articulo/2025/8/plato-la-carta-mas-breve-y-mas-cambiante/" target="_blank" rel="noopener">
-         <strong> Leer nota →</strong>
-        </a>
-      </article>
-    </div>
-  </div>
-</section>
+<div class="gallery-wrap">
       
-<!-- GALERIA -->
-<section id="galeria" class="section section-gallery">
-  <div class="container container-narrow stack-lg">
-    <header class="flex flex-between flex-wrap">
-      <div class="stack-xs">
-        <h2>Galería</h2>
-        <p class="text-muted">Un vistazo a PLATO.</p>
-      </div>
-
-       <a
-        class="btn btn-primary"
-        href="https://www.instagram.com/plato.mvd"
-        target="_blank"
-        rel="noopener"
-        aria-label="Instagram de PLATO"
-        title="Instagram"
-      >
-        <svg
-          class="btn-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.25"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          <path
-            d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4l0 -8"
-          />
-          <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
-          <path d="M16.5 7.5v.01" />
-        </svg>
-        Instagram
-      </a>
-    
-    </header>
-<div class="gallery stack-md">
-
-  <!-- Carrusel 1: Platos -->
-  <div class="gallery-block">
-    <div class="gallery-block-head">
-      <h3 class="gallery-title">Platos</h3>
-    </div>
-
-    <div class="gallery-wrap">
-    
-      <div class="gallery-track" tabindex="0" aria-label="Carrusel: Platos">
-        <button class="gallery-slide" type="button" data-lightbox="assets/pancito.jpg">
-          <img src="assets/pancito.jpg" alt="Plato del día servido" loading="lazy" />
-            <span class="gallery-cap">Plato del día</span>
-        </button>
-
-        <button class="gallery-slide" type="button" data-lightbox="assets/plato.jpg">
-          <img src="assets/plato.jpg" alt="Plato del día en primer plano" loading="lazy" />
-          <span class="gallery-cap">Hoy</span>
-        </button>
-
-        <button class="gallery-slide" type="button" data-lightbox="assets/cocinas.jpg">
-          <img src="assets/platito.jpg" alt="Platos variados" loading="lazy" />
-          <span class="gallery-cap">Variedad</span>
-        </button>
-        
-        <button class="gallery-slide" type="button" data-lightbox="assets/cocinas.jpg">
-          <img src="assets/cocinas.jpg" alt="Platos variados" loading="lazy" />
-          <span class="gallery-cap">Variedad</span>
-        </button>
-      </div>
-
-      
-    </div>
-  </div>
-
-  <!-- Carrusel 2: Cocina & Local -->
-  <div class="gallery-block">
-    <div class="gallery-block-head">
-      <h3 class="gallery-title">Cocina & Local</h3>
-    </div>
-
-    <div class="gallery-wrap">
-      
-      
-
       <div class="gallery-track" tabindex="0" aria-label="Carrusel: Cocina y local">
-        <button class="gallery-slide" type="button" data-lightbox="assets/cocina.jpg">
+        <button class="gallery-slide" type="button"
+          data-lightbox="assets/cocina.jpg"
+          data-title="Cocina"
+          data-desc="Oficio, ritmo y producto. Lo simple hecho con intención, todos los días.">
           <img src="assets/cocina.jpg" alt="Detalle de cocina y emplatado" loading="lazy" />
           <span class="gallery-cap">Cocina</span>
         </button>
 
-        <button class="gallery-slide" type="button" data-lightbox="assets/fachada.jpg">
+        <button class="gallery-slide" type="button"
+          data-lightbox="assets/fachada.jpg"
+          data-title="Fachada"
+          data-desc="Estamos en el Centro. Entrás, pedís, y en minutos está pronto.">
           <img src="assets/fachada.jpg" alt="Fachada o entrada de PLATO" loading="lazy" />
           <span class="gallery-cap">Fachada</span>
         </button>
 
-        <button class="gallery-slide" type="button" data-lightbox="assets/fachada.jpg">
+        <button class="gallery-slide" type="button"
+          data-lightbox="assets/fachada.jpg"
+          data-title="Local"
+          data-desc="Un espacio chico, cuidado y funcional. Pensado para el mediodía.">
           <img src="assets/fachada.jpg" alt="Interior del local" loading="lazy" />
           <span class="gallery-cap">Local</span>
         </button>
-        
-        <button class="gallery-slide" type="button" data-lightbox="assets/cocinas.jpg">
+
+        <button class="gallery-slide" type="button"
+          data-lightbox="assets/cocinas.jpg"
+          data-title="Variedad"
+          data-desc="Imágenes del día a día: cocina, bandeja, mostrador y platos en rotación.">
           <img src="assets/cocinas.jpg" alt="Platos variados" loading="lazy" />
           <span class="gallery-cap">Variedad</span>
         </button>
       </div>
 
-     
-    </div>
+      </div>
   </div>
 
-</div>
-  </div>
+
+<!-- PRUEBA SOCIAL -->
+ <section class="tapes" aria-label="Prensa y reseñas">
+  <!-- Tira 1 -->
+  <article class="tape" aria-label="Artículo de prensa 1">
+    <p class="tape-kicker">La Diaria</p>
+    <h3 class="tape-title">“Plato: la carta más breve y más cambiante”</h3>
+    <p class="tape-text">
+      Dos cocineros jóvenes despachan una única preparación diaria,
+          enfocada en el producto y el ritmo urbano.</p>
+    <a class="tape-link" href="https://ladiaria.com.uy/cotidiana/articulo/2025/8/plato-la-carta-mas-breve-y-mas-cambiante/" target="_blank" rel="noopener">Leer artículo →</a>
+  </article>
+
+  <!-- Tira 2 -->
+  <article class="tape" aria-label="Artículo de prensa 2">
+    <p class="tape-kicker">EL PAIS</p>
+    <h3 class="tape-title">“Plato, la innovadora propuesta gastronómica urbana en pleno centro”</h3>
+    <p class="tape-text">
+    Una cocina abierta a la calle que sorprende con un menú que cambia
+          todos los días y mantiene una identidad clara.</p>
+    <a class="tape-link" href="https://www.elpais.com.uy/el-empresario/plato-la-innovadora-propuesta-gastronomica-urbana-en-pleno-centro-montevideano-que-sorprende-semana-a-semana" target="_blank" rel="noopener">Leer artículo →</a>
+  </article>
+
+  <!-- Tira 3 -->
+  <article class="tape" aria-label="Reseñas en Google">
+    <p class="tape-kicker">Google</p>
+    <h3 class="tape-title">4.9 ★ en Google</h3>
+    
+    <a class="tape-link" href="https://search.google.com/local/reviews?placeid=ChIJ72a1DeyBn5URlrzokHn5jHQ" target="_blank" rel="noopener">Ver reseñas →</a>
+  </article>
 </section>
-
+ 
 
 <!-- LOCACION -->
 <section id="ubicacion" class="section section-location">
@@ -622,8 +634,33 @@
     <img id="lightbox-image" src="" alt="" />
   </div>
 </div>
+<script>
+(() => {
+  const svg = document.querySelector(".bg-scribble");
+  if (!svg) return;
+
+  const setHeight = () => {
+    // altura real del documento
+    const h = document.documentElement.scrollHeight;
+    svg.style.height = h + "px";
+  };
+
+  // al cargar
+  setHeight();
+
+  // si cambia el layout / resize
+  window.addEventListener("resize", setHeight);
+
+  // por si cargan imágenes tarde
+  window.addEventListener("load", setHeight);
+
+  // observa cambios en el DOM (menú dinámico, imágenes, etc.)
+  const ro = new ResizeObserver(setHeight);
+  ro.observe(document.body);
+})();
+</script>
   <script src="js/app.js"></script>
 <script src="js/menu.js"></script>
-    </div>
+    
   </body>
 </html>

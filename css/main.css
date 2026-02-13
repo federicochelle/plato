@@ -18,12 +18,15 @@
    4. PAGES / SECTIONS (hero, landing)
 ========================= */
 @import "hero.css";
-@import "seccionmenu.css";
 @import "pruebasocial.css";
 @import "galeria.css";
 @import "ubicacion.css";
 @import "propuesta.css";
+@import "lineas.css";
+@import "proceso.css";
+
 /* =========================
    5. OVERRIDES / FIXES (siempre al final)
 ========================= */
 @import "overrides.css";
+@import "seccionmenu.css";

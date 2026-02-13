@@ -4,18 +4,33 @@
 
 .hero {
   position: relative;
-  min-height: 70vh;
+  min-height: 72vh; /* más corto */
+  padding-block: 4rem;
 
   background-image: url("../assets/plato.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
+  background-color: var(--color--b);
   display: flex;
   align-items: center;
+
+  /* Fade real hacia transparencia abajo */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 92%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 92%,
+    rgba(0, 0, 0, 0) 100%
+  );
 }
 
-/* Overlay para legibilidad */
+/* Overlay para legibilidad (oscurece arriba) */
 .hero::before {
   content: "";
   position: absolute;
@@ -23,10 +38,10 @@
   background: linear-gradient(
     to bottom,
     rgba(11, 15, 20, 0.75) 0%,
-    rgba(11, 15, 20, 0.6) 40%,
-    rgba(11, 15, 20, 0.35) 70%,
-    rgba(11, 15, 20, 0.15) 100%
+    rgba(11, 15, 20, 0.25) 80%,
+    rgba(11, 15, 20, 0) 100%
   );
+  z-index: 0;
 }
 
 /* Contenido arriba del overlay */
@@ -43,24 +58,13 @@
 .hero h1,
 .hero p,
 .hero .badge {
-  color: #fff;
-}
-
-/* Botones en hero */
-.hero .btn-outline {
-  border-color: rgba(255, 255, 255, 0.6);
-  color: #fff;
-}
-
-.hero .btn-outline:hover {
-  background: rgba(255, 255, 255, 0.12);
+  color: var(--color--a);
 }
 
 /* =========================
    HERO – ESPACIADO
 ========================= */
 
-/* Chips */
 .hero .chips {
   display: flex;
   flex-wrap: wrap;
@@ -68,7 +72,6 @@
   margin-top: 0.75rem;
 }
 
-/* Botones */
 .hero .actions {
   display: flex;
   gap: 0.75rem;

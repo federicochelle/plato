@@ -2,64 +2,202 @@
    MENÚ – SECTION
 ========================= */
 
+/*
+.section-menu h2 {
+  color: var(--color--a);
+}
+
+#menu-date {
+  color: var(--color--a);
+}
+
+#menu-tags {
+  color: var(--color--a);
+}
+
+#menu-loading {
+  color: var(--color--a);
+}
+
+#menu-desc {
+  color: var(--color--a);
+}
+
+#menu-price {
+  color: var(--color--a);
+}
+
+#menu-open {
+  color: var(--color--a);
+}
+
+#menu .btn-outline {
+  border-color: var(--color--a);
+}
+#menu .btn-primary {
+  border-color: var(--color--a);
+}*/
+
+/* =========================
+   SECTION MENU
+========================= */
+
 .section-menu {
   position: relative;
   overflow: hidden;
 }
 
-/* El contenido arriba del fondo */
+/* Contenido arriba del fondo */
 .section-menu .container {
   position: relative;
   z-index: 1;
 }
 
-/* Card especial */
+/* =========================
+   MENU CARD (base + upgrade)
+========================= */
+.section-menu h2 {
+  font-size: 1.3rem;
+  text-align: center;
+}
 .menu-card {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem; /* separaciones prolijas */
+  gap: 0.7rem;
+
+  /* upgrade visual */
+  padding: 1rem;
+  border-radius: 0;
+
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(24, 38, 24, 0.1);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.1);
 }
 
-/* El bloque de acciones siempre abajo */
-.menu-meta {
-  margin-top: auto; /* 🔑 mantiene el botón en su lugar */
+/* Header del menú */
+.section-menu header h2 {
+  letter-spacing: -0.02em;
+}
+.section-menu header {
+  margin-bottom: 0;
+}
+#menu-date {
+  margin-top: 0.15rem;
+  font-size: 0.75rem;
+  opacity: 0.8;
+  text-align: center;
 }
 
 /* Título del plato */
-.menu-title {
-  font-size: 1.35rem;
+#menu-tags.menu-title {
+  font-size: 1rem;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+  margin-top: 0.15rem;
 }
 
 /* Descripción */
-.menu-description {
+#menu-desc.menu-description {
   max-width: 60ch;
+  font-size: 0.8rem;
+  line-height: 1.55;
+  opacity: 0.9;
 }
 
-/* Meta info */
+/* =========================
+   META (precio + botón semanal)
+========================= */
+
 .menu-meta {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
+
+  margin-top: 0.3rem;
+  padding-top: 0.6rem;
+
+  /* línea editorial sutil */
+  border-top: 1px solid rgba(24, 38, 24, 0.1);
 }
 
-/* Precio protagonista */
 .menu-price {
-  font-size: 1.4rem;
-  font-weight: var(--font-weight-bold);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
   color: var(--color-text);
 }
 
-/*LOADER*/
+/* Empuja el CTA hacia abajo si la card crece */
+.menu-card .actions {
+  margin-top: auto;
+}
+
 /* =========================
-   MENU LOADING (PULSE)
+   BOTONES
+========================= */
+
+.section-menu .btn {
+  font-size: 0.8rem;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease,
+    border-color 0.15s ease,
+    opacity 0.15s ease;
+}
+
+/* Secundario (Ver menú semanal) */
+#menu-open.btn-outline {
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(24, 38, 24, 0.28);
+  color: rgba(24, 38, 24, 0.92);
+}
+
+#menu-open.btn-outline:hover {
+  background: rgba(24, 38, 24, 0.06);
+  border-color: rgba(24, 38, 24, 0.42);
+  transform: translateY(-1px);
+}
+
+#menu-open.btn-outline:active {
+  transform: translateY(0);
+}
+
+/* Primario (WhatsApp) */
+#menu-wa.btn-primary {
+  width: 100%;
+  justify-content: center;
+
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+}
+
+#menu-wa.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.16);
+}
+
+#menu-wa.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* =========================
+   LOADER + FALLBACK
 ========================= */
 
 .menu-loading {
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-family: var(--font-display);
   animation: menuPulse 1.4s ease-in-out infinite;
+  opacity: 0.85;
 }
 
 @keyframes menuPulse {
@@ -73,11 +211,31 @@
     opacity: 0.35;
   }
 }
+
 #menu-fallback {
   text-align: center;
-  font-size: 1.05rem; /* un poco más grande */
+  font-size: 1.05rem;
   font-weight: 500;
   line-height: 1.4;
   margin: 0.5rem 0 0.75rem;
   padding-top: 0;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 520px) {
+  .menu-card {
+    padding: 1.05rem;
+    border-radius: 14px;
+  }
+
+  .menu-meta {
+    gap: 0.75rem;
+  }
+
+  #menu-open {
+    width: 100%;
+  }
 }
