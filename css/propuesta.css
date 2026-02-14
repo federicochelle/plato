@@ -6,7 +6,7 @@
   /* upgrade visual */
   padding: 1rem;
   border-radius: 0;
-
+  text-align: center;
   background: rgba(255, 255, 255, 0.55);
   border: 1px solid rgba(24, 38, 24, 0.1);
   backdrop-filter: blur(6px);
@@ -29,12 +29,6 @@
   justify-content: flex-start;
 }
 
-@media (min-width: 900px) {
-  .section-propuesta-preview p {
-    text-align: left;
-  }
-}
-
 .section-propuesta-preview header {
   max-width: 680px;
 }
@@ -52,4 +46,17 @@
   white-space: nowrap;
   align-self: center;
   margin-top: 1rem;
+}
+.propuesta-card header {
+  text-align: center;
+}
+
+.propuesta-card header {
+  max-width: 650px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.propuesta-card .text-muted {
+  margin-inline: auto;
 }
