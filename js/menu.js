@@ -178,7 +178,7 @@ async function loadMenu() {
 
     if (diffDays < 0 || diffDays > 4) {
       showTodayFallback(
-        "Hoy no abrimos. Nos volvemos a encontrar el próximo lunes.",
+        "Hoy no abrimos. Nos volvemos a encontrar la próxima semana.",
       );
       return;
     }
