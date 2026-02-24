@@ -7,18 +7,14 @@
   min-height: 87vh;
   display: flex;
   align-items: center;
-  justify-content: center; /* centra horizontal */
-  text-align: center; /* centra texto */
+  justify-content: center;
+  text-align: center;
   overflow: hidden;
+
+  /* evita highlight azul en iOS */
+  -webkit-tap-highlight-color: transparent;
 }
 
-.hero-copy h1 {
-  color: #ffffff;
-}
-
-.hero-copy .lead {
-  color: rgba(255, 255, 255, 0.85);
-}
 /* ==============================
    VIDEO full cover
 ============================== */
@@ -31,6 +27,22 @@
   display: block;
   object-fit: cover;
   z-index: 0;
+
+  /* iOS */
+  pointer-events: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* ==============================
+   SHIELD invisible (anti iOS tap)
+============================== */
+
+.hero-video-shield {
+  position: absolute;
+  inset: 0;
+  z-index: 1; /* arriba del video */
+  background: transparent;
 }
 
 /* ==============================
@@ -48,11 +60,14 @@
     rgba(11, 15, 20, 0.15) 80%,
     rgba(11, 15, 20, 0) 100%
   );
-  z-index: 1;
+  z-index: 2;
+
+  /* IMPORTANTE: captura taps antes que el video */
+  pointer-events: auto;
 }
 
 /* ==============================
-   DEGRADÉ inferior (fundido real)
+   DEGRADÉ inferior
 ============================== */
 
 .hero::after {
@@ -61,9 +76,9 @@
   left: 0;
   right: 0;
   bottom: 0;
-  height: 120px; /* ajustable */
+  height: 120px;
   background: linear-gradient(to bottom, rgba(11, 15, 20, 0), var(--color-bg));
-  z-index: 1;
+  z-index: 2;
 }
 
 /* ==============================
@@ -72,9 +87,17 @@
 
 .hero-inner {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   max-width: 900px;
   padding: 0 1.5rem;
+}
+
+.hero-copy h1 {
+  color: #ffffff;
+}
+
+.hero-copy .lead {
+  color: rgba(255, 255, 255, 0.85);
 }
 
 /* ==============================
@@ -86,15 +109,23 @@
     min-height: 90vh;
   }
 }
-.hero-media {
-  pointer-events: none; /* evita taps que activen UI */
+
+/* ==============================
+   iOS SAFARI - ocultar controles
+============================== */
+
+.hero-media::-webkit-media-controls {
+  display: none !important;
 }
 
-/* iOS/Safari - esconder controles nativos */
-.hero-media::-webkit-media-controls,
-.hero-media::-webkit-media-controls-panel,
-.hero-media::-webkit-media-controls-play-button,
+.hero-media::-webkit-media-controls-panel {
+  display: none !important;
+}
+
+.hero-media::-webkit-media-controls-play-button {
+  display: none !important;
+}
+
 .hero-media::-webkit-media-controls-start-playback-button {
   display: none !important;
-  -webkit-appearance: none;
 }
