@@ -5,13 +5,14 @@
 .hero {
   position: relative;
   min-height: 90vh;
-  display: grid;
-  place-items: center;
   overflow: hidden;
   text-align: center;
+
+  display: grid;
+  place-items: center;
+  justify-items: center; /* asegura centrado horizontal */
 }
 
-/* Mobile altura real Safari */
 @media (max-width: 768px) {
   .hero {
     min-height: 90svh;
@@ -25,27 +26,32 @@
 .hero-media {
   position: absolute;
   inset: 0;
+
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+
   z-index: 0;
 
-  pointer-events: none; /* 🔥 evita que iOS lo trate como interactivo */
+  pointer-events: none; /* evita taps */
+  -webkit-user-select: none;
+  user-select: none;
 }
 
-/* Esconder controles iOS */
-.hero-media::-webkit-media-controls {
+/* Ocultar controles iOS (más completo) */
+.hero-media::-webkit-media-controls,
+.hero-media::-webkit-media-controls-panel,
+.hero-media::-webkit-media-controls-play-button,
+.hero-media::-webkit-media-controls-start-playback-button,
+.hero-media::-webkit-media-controls-overlay-play-button {
   display: none !important;
-}
-
-.hero-media::-webkit-media-controls-start-playback-button {
-  display: none !important;
-  -webkit-appearance: none;
+  -webkit-appearance: none !important;
+  opacity: 0 !important;
 }
 
 /* =========================
-   OVERLAY (suave arriba + fade corto abajo)
+   OVERLAY (menos oscuro arriba + fade más corto abajo)
 ========================= */
 
 .hero-overlay {
@@ -55,15 +61,15 @@
   pointer-events: none;
 
   background:
-    /* oscurece levemente arriba */
+    /* oscurece suave arriba */
     linear-gradient(
       to bottom,
-      rgba(0, 0, 0, 0.35) 0%,
-      rgba(0, 0, 0, 0.35) 55%,
+      rgba(0, 0, 0, 0.22) 0%,
+      rgba(0, 0, 0, 0.22) 52%,
       rgba(0, 0, 0, 0) 100%
     ),
     /* fade inferior más corto */
-    linear-gradient(to bottom, rgba(0, 0, 0, 0) 75%, var(--color-bg) 100%);
+    linear-gradient(to bottom, rgba(0, 0, 0, 0) 84%, var(--color-bg) 100%);
 }
 
 /* =========================
@@ -74,15 +80,16 @@
   position: relative;
   z-index: 2;
 
-  width: 100%;
-  max-width: 900px;
-
+  width: min(900px, 100%);
   margin-inline: auto;
   padding-inline: 1.5rem;
 
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+
+  text-align: center; /* refuerza centrado */
 }
 
 /* Ajuste por header */
@@ -96,7 +103,8 @@
 
 .hero-title {
   margin: 0 0 0.6rem;
-  color: white;
+  color: #fff;
+
   text-transform: uppercase;
   letter-spacing: 0.035em;
   line-height: 1.1;
@@ -106,7 +114,8 @@
 
 .hero-subtitle {
   margin: 0;
-  color: white;
+  color: #fff;
+
   max-width: 40ch;
   line-height: 1.4;
 

@@ -203,12 +203,13 @@
     loop
     playsinline
     webkit-playsinline
-    preload="metadata"
+    preload="auto"
+    poster="assets/heroposter.jpg"
     
   >
     <source src="assets/platohero_v4.mp4" type="video/mp4" />
   </video>
-
+<div class="hero-overlay" aria-hidden="true"></div>
 
   <div class="container hero-content hero-offset stack-md">
     <h1 class="hero-title">PLATO</h1>
@@ -670,56 +671,73 @@
 </script>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
+  const hero = document.querySelector(".hero");
   const v = document.querySelector(".hero-media");
   if (!v) return;
 
-  // Forzar atributos críticos iOS/Safari
+  // iOS/Safari: atributos críticos desde JS (por si el HTML se pisa)
   v.muted = true;
   v.defaultMuted = true;
+  v.autoplay = true;
+  v.loop = true;
+  v.playsInline = true;
+
   v.setAttribute("muted", "");
   v.setAttribute("playsinline", "");
   v.setAttribute("webkit-playsinline", "");
-  v.setAttribute("autoplay", "");
-  v.setAttribute("loop", "");
-
-  // Extra: evita UI por interacción
+  v.removeAttribute("controls");
   v.controls = false;
-  v.setAttribute("controls", "false");
+
+  let autoplayBlocked = false;
+
+  const markReady = () => {
+    if (hero) hero.classList.add("video-ready");
+  };
+
+  const disableVideo = () => {
+    autoplayBlocked = true;
+    // Si querés que quede SOLO el poster sin UI:
+    v.style.display = "none";
+    // Si en vez de ocultarlo querés dejarlo en poster:
+    // v.pause(); v.removeAttribute("src"); v.load();
+  };
 
   const tryPlay = () => {
-    // iOS a veces necesita esto justo antes del play
+    if (autoplayBlocked) return;
+
+    // Reforzar muted justo antes de play (iOS)
     v.muted = true;
 
     const p = v.play();
-    if (p && typeof p.catch === "function") p.catch(() => {});
+    if (p && typeof p.catch === "function") {
+      p.then(() => {
+        markReady();
+      }).catch(() => {
+        // iOS bloqueó autoplay (o WebView): dejamos fallback limpio
+        disableVideo();
+      });
+    }
   };
 
-  // Intentos en momentos clave
+  // 1) Intento inicial
   tryPlay();
 
-  // Cuando el video ya tiene data suficiente
+  // 2) Cuando ya hay data suficiente (mejor que reintentar por pause)
   v.addEventListener("canplay", tryPlay, { once: true });
 
-  // Si iOS lo pausa por su cuenta, reintentar
-  v.addEventListener("pause", () => {
-    if (!document.hidden) tryPlay();
-  });
-
-  // Primera interacción del usuario (más robusto que solo touchstart)
+  // 3) Si el usuario interactúa una vez, reintentamos (esto destraba muchos iPhone)
   const unlock = () => tryPlay();
   window.addEventListener("touchstart", unlock, { once: true, passive: true });
   window.addEventListener("click", unlock, { once: true, passive: true });
-  window.addEventListener("scroll", unlock, { once: true, passive: true });
 
-  // Al volver atrás (bfcache)
-  window.addEventListener("pageshow", () => {
-    tryPlay();
-  });
-
-  // Al volver a la pestaña
+  // 4) Al volver desde bfcache / pestañas
+  window.addEventListener("pageshow", () => tryPlay());
   document.addEventListener("visibilitychange", () => {
     if (!document.hidden) tryPlay();
   });
+
+  // 5) Cuando realmente está reproduciendo
+  v.addEventListener("playing", markReady, { once: true });
 });
 </script>
   <script src="js/app.js"></script>
