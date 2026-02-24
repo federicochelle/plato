@@ -195,32 +195,32 @@
 </svg>
  <!-- HERO -->
 <div class="" ></div>
-  <section class="section hero">
-    <video
-          class="hero-media"
-          autoplay
-          muted
-          loop
-          playsinline
-          preload="auto"
-          fetchpriority="high"
-        >
-          <source src="assets/hero.mp4" type="video/mp4" />
-        </video>
-  <div class="container hero-inner">
-    
+<section class="section hero">
+  <video
+    class="hero-media"
+    autoplay
+    muted
+    loop
+    playsinline
+    webkit-playsinline
+    preload="auto"
+    fetchpriority="high"
+    aria-hidden="true"
+  >
+    <source src="assets/hero.mp4" type="video/mp4" />
+  </video>
 
+  <!-- Shield invisible: evita que iOS muestre el botón de play por tap -->
+  <div class="hero-video-shield" aria-hidden="true"></div>
+
+  <div class="container hero-inner">
     <div class="hero-copy">
       <h1>PLATO</h1>
-      <p class="lead">
-        Cada dia, 
-        distinto.
-      </p>
-
-    
+      <p class="lead">Cada día, distinto.</p>
 
       <div class="actions">
-     <!--   <a class="btn btn-primary" href="#menu">Ver menú de hoy</a>
+        <!--
+        <a class="btn btn-primary" href="#menu">Ver menú de hoy</a>
         <a
           class="btn btn-outline"
           href="https://wa.me/59891640124"
@@ -228,12 +228,12 @@
           rel="noopener"
         >
           Pedir por WhatsApp
-        </a>-->
+        </a>
+        -->
       </div>
     </div>
   </div>
 </section>
-
 <!-- MENU -->
 <section id="menu" class="section section-menu">
   <div class="container container-narrow stack-md">
@@ -692,43 +692,41 @@ document.addEventListener("DOMContentLoaded", () => {
   const video = document.querySelector(".hero-media");
   if (!video) return;
 
-  // Refuerzo para Safari / iOS
+  // Refuerzo fuerte para iOS/Safari
   video.muted = true;
+  video.defaultMuted = true;
   video.setAttribute("muted", "");
-  video.playsInline = true;
   video.setAttribute("playsinline", "");
+  video.setAttribute("webkit-playsinline", "");
 
   const tryPlay = () => {
     const playPromise = video.play();
-    if (playPromise !== undefined) {
+    if (playPromise && typeof playPromise.catch === "function") {
       playPromise.catch(() => {});
     }
   };
 
-  // Intento inicial
-  tryPlay();
+  // Esperar a que el video esté listo (clave en iOS)
+  video.addEventListener("loadedmetadata", tryPlay, { once: true });
+  video.addEventListener("canplay", tryPlay, { once: true });
 
-  // Si el navegador lo pausa, reintentar
-  video.addEventListener("pause", () => {
-    if (!document.hidden) {
-      tryPlay();
-    }
-  });
-
-  // Si cambiás de pestaña y volvés
+  // Si volvés a la pestaña
   document.addEventListener("visibilitychange", () => {
     if (!document.hidden) {
       tryPlay();
     }
   });
 
-  // Si termina (por si loop falla en algún navegador raro)
-  video.addEventListener("ended", () => {
-    video.currentTime = 0;
+  // Cuando volvés desde navegación iOS
+  window.addEventListener("pageshow", () => {
     tryPlay();
   });
+
+  // Intento inicial
+  tryPlay();
 });
-</script>  <script src="js/app.js"></script>
+</script>
+  <script src="js/app.js"></script>
 <script src="js/menu.js"></script>
     
   </body>
