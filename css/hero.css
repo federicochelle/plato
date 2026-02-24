@@ -86,3 +86,15 @@
     min-height: 90vh;
   }
 }
+.hero-media {
+  pointer-events: none; /* evita taps que activen UI */
+}
+
+/* iOS/Safari - esconder controles nativos */
+.hero-media::-webkit-media-controls,
+.hero-media::-webkit-media-controls-panel,
+.hero-media::-webkit-media-controls-play-button,
+.hero-media::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
+}
