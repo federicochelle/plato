@@ -197,31 +197,26 @@
 <div class="" ></div>
 <!-- HERO -->
       <section class="hero">
-        <video
-          class="hero-media"
-          autoplay
-          muted
-          loop
-          playsinline
-          preload="auto"
-          fetchpriority="high"
-        >
-          <source src="assets/platohero.mp4" type="video/mp4" />
-        </video>
+  <video
+    class="hero-media"
+    autoplay
+    muted
+    loop
+    playsinline
+    webkit-playsinline
+    preload="auto"
+    fetchpriority="high"
+  >
+    <source src="assets/platohero.mp4" type="video/mp4" />
+  </video>
 
-        <!-- si usás overlay como DIV, que esté adentro -->
-        <div class="hero-overlay"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
 
-        <div class="container hero-content hero-offset stack-md">
-          <h1 class="hero-title">PLATO</h1>
-
-          <p class="hero-subtitle max-w-md">
-            Cada día, distinto.
-          </p>
-
-          
-        </div>
-      </section>
+  <div class="container hero-content hero-offset stack-md">
+    <h1 class="hero-title">PLATO</h1>
+    <p class="hero-subtitle max-w-md">Cada día, distinto.</p>
+  </div>
+</section>
       <!-- MENU -->
 <section id="menu" class="section section-menu">
   <div class="container container-narrow stack-md">
@@ -676,38 +671,59 @@
 })();
 </script>
 <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const v = document.querySelector(".hero-media");
-        if (!v) return;
+document.addEventListener("DOMContentLoaded", () => {
+  const v = document.querySelector(".hero-media");
+  if (!v) return;
 
-        // Requisitos iOS
-        v.muted = true;
-        v.setAttribute("muted", "");
-        v.setAttribute("playsinline", "");
-        v.setAttribute("webkit-playsinline", "");
+  // Forzar atributos críticos iOS/Safari
+  v.muted = true;
+  v.defaultMuted = true;
+  v.setAttribute("muted", "");
+  v.setAttribute("playsinline", "");
+  v.setAttribute("webkit-playsinline", "");
+  v.setAttribute("autoplay", "");
+  v.setAttribute("loop", "");
 
-        const tryPlay = () => {
-          const p = v.play();
-          if (p && typeof p.catch === "function") p.catch(() => {});
-        };
+  // Extra: evita UI por interacción
+  v.controls = false;
+  v.setAttribute("controls", "false");
 
-        // Primer intento
-        tryPlay();
+  const tryPlay = () => {
+    // iOS a veces necesita esto justo antes del play
+    v.muted = true;
 
-        // Si necesita interacción
-        window.addEventListener("touchstart", tryPlay, { once: true });
+    const p = v.play();
+    if (p && typeof p.catch === "function") p.catch(() => {});
+  };
 
-        // Cuando volvés atrás (bfcache)
-        window.addEventListener("pageshow", () => {
-          tryPlay();
-        });
+  // Intentos en momentos clave
+  tryPlay();
 
-        // Cuando volvés a la pestaña
-        document.addEventListener("visibilitychange", () => {
-          if (!document.hidden) tryPlay();
-        });
-      });
-    </script>
+  // Cuando el video ya tiene data suficiente
+  v.addEventListener("canplay", tryPlay, { once: true });
+
+  // Si iOS lo pausa por su cuenta, reintentar
+  v.addEventListener("pause", () => {
+    if (!document.hidden) tryPlay();
+  });
+
+  // Primera interacción del usuario (más robusto que solo touchstart)
+  const unlock = () => tryPlay();
+  window.addEventListener("touchstart", unlock, { once: true, passive: true });
+  window.addEventListener("click", unlock, { once: true, passive: true });
+  window.addEventListener("scroll", unlock, { once: true, passive: true });
+
+  // Al volver atrás (bfcache)
+  window.addEventListener("pageshow", () => {
+    tryPlay();
+  });
+
+  // Al volver a la pestaña
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) tryPlay();
+  });
+});
+</script>
   <script src="js/app.js"></script>
 <script src="js/menu.js"></script>
     
