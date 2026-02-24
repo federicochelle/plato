@@ -1,79 +1,88 @@
-/* =========================
-   HERO – IMAGEN DE FONDO
-========================= */
+/* ==============================
+   HERO
+============================== */
 
 .hero {
   position: relative;
   min-height: 87vh;
-  padding-block: 4rem;
-
-  background-image: url("../assets/hero.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   display: flex;
   align-items: center;
-
-  /* Fade real hacia transparencia abajo */
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 1) 92%,
-    rgba(0, 0, 0, 0) 100%
-  );
-  mask-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 1) 92%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  justify-content: center; /* centra horizontal */
+  text-align: center; /* centra texto */
+  overflow: hidden;
 }
 
-/* Overlay para legibilidad (oscurece arriba) */
+.hero-copy h1 {
+  color: #ffffff;
+}
+
+.hero-copy .lead {
+  color: rgba(255, 255, 255, 0.85);
+}
+/* ==============================
+   VIDEO full cover
+============================== */
+
+.hero > video.hero-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* ==============================
+   OVERLAY principal (contraste)
+============================== */
+
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(11, 15, 20, 0.75) 0%,
-    rgba(11, 15, 20, 0.25) 80%,
+    rgba(11, 15, 20, 0.65) 0%,
+    rgba(11, 15, 20, 0.35) 60%,
+    rgba(11, 15, 20, 0.15) 80%,
     rgba(11, 15, 20, 0) 100%
   );
-  z-index: 0;
-}
-
-/* Contenido arriba del overlay */
-.hero-inner {
-  position: relative;
   z-index: 1;
 }
 
-/* Texto del hero */
-.hero-copy {
-  max-width: 520px;
+/* ==============================
+   DEGRADÉ inferior (fundido real)
+============================== */
+
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 120px; /* ajustable */
+  background: linear-gradient(to bottom, rgba(11, 15, 20, 0), var(--color-bg));
+  z-index: 1;
 }
 
-.hero h1,
-.hero p,
-.hero .badge {
-  color: var(--color--a);
+/* ==============================
+   CONTENIDO
+============================== */
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  padding: 0 1.5rem;
 }
 
-/* =========================
-   HERO – ESPACIADO
-========================= */
+/* ==============================
+   MOBILE
+============================== */
 
-.hero .chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-top: 0.75rem;
-}
-
-.hero .actions {
-  display: flex;
-  gap: 0.75rem;
-  margin-top: 1.25rem;
-  flex-wrap: wrap;
+@media (max-width: 768px) {
+  .hero {
+    min-height: 90vh;
+  }
 }

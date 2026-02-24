@@ -196,11 +196,24 @@
  <!-- HERO -->
 <div class="" ></div>
   <section class="section hero">
+    <video
+          class="hero-media"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+          fetchpriority="high"
+        >
+          <source src="assets/hero.mp4" type="video/mp4" />
+        </video>
   <div class="container hero-inner">
+    
+
     <div class="hero-copy">
       <h1>PLATO</h1>
       <p class="lead">
-        Cada dia, <br>
+        Cada dia, 
         distinto.
       </p>
 
@@ -380,7 +393,6 @@
       <figcaption class="lb-caption">
         <h3 class="lb-title"></h3>
         <p class="lb-desc"></p>
-        <a class="lb-cta" id="lb-wa" target="_blank" rel="noopener">Pedir por WhatsApp</a>
       </figcaption>
     </figure>
   </div>
@@ -674,6 +686,22 @@
   const ro = new ResizeObserver(setHeight);
   ro.observe(document.body);
 })();
+</script>
+<script>
+const video = document.querySelector(".hero-media");
+
+document.addEventListener("visibilitychange", () => {
+  if (!document.hidden) {
+    video.play().catch(() => {});
+  }
+});
+
+// también por si el navegador lo pausa
+video.addEventListener("pause", () => {
+  if (!document.hidden) {
+    video.play().catch(() => {});
+  }
+});
 </script>
   <script src="js/app.js"></script>
 <script src="js/menu.js"></script>
