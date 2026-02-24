@@ -2,18 +2,9 @@
    UBICACIÓN – Layout 2 columnas
 ========================= */
 
-.section-location .container {
-  /* si ya tenés container no hace falta, dejalo igual */
-}
-
 .location-grid {
   display: grid;
   gap: 1.2rem;
-}
-
-/* Mobile: apilado */
-.location-info {
-  /* si usás stack-md ya mete separación */
 }
 
 /* Desktop: texto izq / mapa der */
