@@ -1,131 +1,157 @@
-/* ==============================
-   HERO
-============================== */
+/* -------------------------
+   HERO (mejorado)
+------------------------- */
 
 .hero {
   position: relative;
-  min-height: 87vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
   overflow: hidden;
+  min-height: 93vh;
 
-  /* evita highlight azul en iOS */
-  -webkit-tap-highlight-color: transparent;
+  display: grid;
+  place-items: center;
 }
 
-/* ==============================
-   VIDEO full cover
-============================== */
+/* Mobile: un poco más alto */
+@media (max-width: 520px) {
+  .hero {
+    min-height: 82svh;
+  }
+}
 
-.hero > video.hero-media {
+/* Video / imagen */
+.hero-media {
   position: absolute;
   inset: 0;
+
   width: 100%;
   height: 100%;
-  display: block;
   object-fit: cover;
-  z-index: 0;
-
-  /* iOS */
-  pointer-events: none;
-  -webkit-user-select: none;
-  user-select: none;
 }
 
-/* ==============================
-   SHIELD invisible (anti iOS tap)
-============================== */
-
-.hero-video-shield {
-  position: absolute;
-  inset: 0;
-  z-index: 1; /* arriba del video */
-  background: transparent;
-}
-
-/* ==============================
-   OVERLAY principal (contraste)
-============================== */
-
+/* Overlay + fade en una sola capa (más limpio) */
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(11, 15, 20, 0.65) 0%,
-    rgba(11, 15, 20, 0.35) 60%,
-    rgba(11, 15, 20, 0.15) 80%,
-    rgba(11, 15, 20, 0) 100%
-  );
-  z-index: 2;
 
-  /* IMPORTANTE: captura taps antes que el video */
-  pointer-events: auto;
+  /* 1) overlay menos oscuro arriba
+     2) fade blanco más corto abajo */
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.28) 0%,
+      rgba(0, 0, 0, 0.42) 55%,
+      rgba(0, 0, 0, 0) 100%
+    ),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0) 78%, var(--color-bg) 100%);
+
+  pointer-events: none;
+  z-index: 1;
 }
-
-/* ==============================
-   DEGRADÉ inferior
-============================== */
-
+/* Ya no necesitamos ::after */
 .hero::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 120px;
-  background: linear-gradient(to bottom, rgba(11, 15, 20, 0), var(--color-bg));
-  z-index: 2;
+  content: none;
 }
 
-/* ==============================
-   CONTENIDO
-============================== */
-
-.hero-inner {
+/* Contenido arriba */
+.hero-content {
   position: relative;
-  z-index: 3;
-  max-width: 900px;
-  padding: 0 1.5rem;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centra horizontal */
+  justify-content: center; /* centra vertical dentro del bloque */
+  text-align: center;
+
+  padding: var(--space-xl) 0;
 }
 
-.hero-copy h1 {
-  color: #ffffff;
+/* Empuje por el logo */
+.hero-offset {
+  padding-top: 40px;
 }
 
-.hero-copy .lead {
-  color: rgba(255, 255, 255, 0.85);
+/* Título */
+.hero-title {
+  text-transform: uppercase;
+  letter-spacing: 0.035em;
+  line-height: 1.1;
+
+  margin: 0 auto 0.8rem;
+  max-width: 20ch;
+  color: white;
+  /* un pelín de glow para que siempre lea */
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
 }
 
-/* ==============================
-   MOBILE
-============================== */
+/* Subtítulo */
+.hero-subtitle {
+  color: white;
+  line-height: 1.45;
+  font-size: large;
 
-@media (max-width: 768px) {
-  .hero {
-    min-height: 90vh;
+  margin: 0 auto 0rem;
+  max-width: 52ch;
+
+  text-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* CTA */
+.cta-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.cta-actions .btn {
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    filter 160ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cta-actions .btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+    filter: brightness(1.03);
   }
 }
 
-/* ==============================
-   iOS SAFARI - ocultar controles
-============================== */
+/* Mobile: texto + CTA prolijos */
+@media (max-width: 720px) {
+  .hero {
+    min-height: 90vh;
+  }
+  .hero-content {
+    max-width: 420px;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
 
-.hero-media::-webkit-media-controls {
-  display: none !important;
-}
+  .hero-title {
+    letter-spacing: 0.03em;
+    line-height: 1.15;
+  }
 
-.hero-media::-webkit-media-controls-panel {
-  display: none !important;
-}
+  .hero-subtitle {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 0.85rem;
+    max-width: 40ch;
+  }
 
-.hero-media::-webkit-media-controls-play-button {
-  display: none !important;
-}
+  .cta-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
 
-.hero-media::-webkit-media-controls-start-playback-button {
-  display: none !important;
+  .cta-actions .btn {
+    width: auto;
+    min-width: 190px;
+    padding: 0.78rem 1.3rem;
+    font-size: 0.95rem;
+    justify-content: center;
+  }
 }
