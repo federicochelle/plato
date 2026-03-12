@@ -34,7 +34,7 @@ function renderWeek(menu) {
     strong.textContent = dia || "-";
 
     const span = document.createElement("span");
-    span.textContent = `${tags || "Menú a confirmar"}`; // ✅ FIX
+    span.textContent = `${tags || "Menú a confirmar"}`;
 
     header.appendChild(strong);
     header.appendChild(span);
