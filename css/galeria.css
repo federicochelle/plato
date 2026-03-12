@@ -138,7 +138,7 @@
 /* Desktop: podés cambiar marco visual */
 @media (min-width: 900px) {
   .gallery-slide img {
-    aspect-ratio: 21 / 9; /* más “banner” en desktop (opcional) */
+    aspect-ratio: 13 / 9; /* más “banner” en desktop (opcional) */
   }
 }
 
