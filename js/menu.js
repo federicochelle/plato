@@ -177,9 +177,7 @@ async function loadMenu() {
     const diffDays = Math.floor((today - start) / (1000 * 60 * 60 * 24));
 
     if (diffDays < 0 || diffDays > 4) {
-      showTodayFallback(
-        "Hoy no abrimos. Nos volvemos a encontrar la próxima semana.",
-      );
+      showTodayFallback("Nos vemos el domingo 15/03. PLATOxGARASH");
       return;
     }
 

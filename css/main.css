@@ -34,3 +34,136 @@
 .menu-card {
   border-radius: 0;
 }
+
+#event-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 9999;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+#event-popup.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.popup-content {
+  position: relative;
+  width: min(92vw, 520px);
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-flyer {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.popup-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2;
+}
+
+/* ===============================
+   SECCIÓN EVENTO / PROPUESTA
+================================ */
+
+.section-propuesta {
+  padding: 80px 0;
+}
+
+.propuesta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* imagen */
+
+.propuesta-image {
+  display: flex;
+  justify-content: center;
+}
+
+.propuesta-image img {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  border-radius: 6px;
+}
+
+/* contenido */
+
+.propuesta-content {
+  max-width: 480px;
+}
+
+.propuesta-content h2 {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.propuesta-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+/* botón */
+
+.propuesta-content .btn {
+  display: inline-block;
+  padding: 10px 18px;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 768px) {
+  .section-propuesta {
+    padding: 60px 0;
+  }
+
+  .propuesta-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .propuesta-image img {
+    max-width: 300px;
+    margin: auto;
+  }
+}
