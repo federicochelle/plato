@@ -1,5 +1,5 @@
 const MENU_API_URL =
-  "https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLgoytzxXqIfoYiyc6K8WVCLVf2_aLKpSq4x9DUI2Gy-B4KGtvSQXv3u-d7CJqv-ASti7eUkwCp5QDBJdJ7ik3Ezn5y-CGgzdOSJbWgOu36rkTNVt-mIEcoKvuu8pWV5j-dDFpqTSlvoAWZfGRm4GOAap4rxrcJxh5y5hURfWG2m2_FabiZHjCN5caFa2q2GPm3_YurzmHmSABjfm-MIPPnbIrBAI_oZ4zzK7HilfqXPktn0Yoc4aj5KfdzRyjbHZxg_IuKSft82DdYq2gtk9hzHQsi_1Q&lib=MqgZhj5zhhmIJ-EpNDB63jqsBj-ld1thL";
+  "https://script.googleusercontent.com/macros/echo?user_content_key=AWDtjMXoXxoHpxNuh90UlgUPF6FwEQ0JGww3_tX4S4TapCysrlb4Uz3gBUB9oz5DgqFU5c8ysg836iP7aW_aRYr2C073_wdxnjWLJrSuYUJmRC5RqjW5Aqe0OYLZy3PbG4czBiiMJ_BkYChjLKTyjHxs2aFsO249YK1op7h-vwe2q-ojyrD4WgaPk9ZUHo9y3T-ZXZkLB340bJ8jojFC9NJT7EQJFS7oZRQysJER3AFlQEAKZgzy4DTUYmVJdKL2XQLYbrVAlKJXs8zU-9FvH91S4NlYV3-pHw&lib=MqgZhj5zhhmIJ-EpNDB63jqsBj-ld1thL";
 
 function stripTags(text) {
   return safeText(text).replace(/<[^>]*>/g, "");
@@ -10,6 +10,20 @@ function safeText(v) {
     .replace(/\s+/g, " ")
     .trim();
 }
+
+function paintWeeklySpecial({ nombre, descripcion }) {
+  const box = document.getElementById("weekly-special");
+  const elName = document.getElementById("weekly-special-name");
+  const elDesc = document.getElementById("weekly-special-desc");
+
+  if (!box) return;
+
+  if (elName) elName.textContent = nombre || "";
+  if (elDesc) elDesc.textContent = descripcion || "";
+
+  box.hidden = false;
+}
+
 // CONSUMO DE API
 function renderWeek(menu) {
   const container = document.getElementById("menu-week");
@@ -144,6 +158,15 @@ async function loadMenu() {
     if (!res.ok) throw new Error("No se pudo cargar el menú");
 
     const data = await res.json();
+
+    const weekly = data.plato_semanal;
+
+if (weekly) {
+  paintWeeklySpecial({
+    nombre: safeText(weekly.nombre),
+    descripcion: safeText(weekly.descripcion),
+  });
+}
 
     // --- Blindaje mínimo ---
     if (!data || typeof data !== "object") {
