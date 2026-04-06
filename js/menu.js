@@ -24,53 +24,6 @@ function paintWeeklySpecial({ nombre, descripcion }) {
   box.hidden = false;
 }
 
-function hideWeeklySpecial() {
-  const box = document.getElementById("weekly-special");
-  if (box) box.hidden = true;
-}
-
-function showMenuSection() {
-  const section = document.getElementById("menu");
-  if (section) section.hidden = false;
-}
-
-function hideMenuSection() {
-  const section = document.getElementById("menu");
-  if (section) section.hidden = true;
-}
-
-function startOfLocalDay(date) {
-  const normalized = new Date(date);
-  normalized.setHours(0, 0, 0, 0);
-  return normalized;
-}
-
-function parseSheetDate(value) {
-  if (value instanceof Date && !Number.isNaN(value.getTime())) {
-    return startOfLocalDay(value);
-  }
-
-  const text = safeText(value);
-  if (!text) return null;
-
-  const isoMatch = text.match(/^(\d{4})-(\d{2})-(\d{2})$/);
-  if (isoMatch) {
-    const [, year, month, day] = isoMatch;
-    return new Date(Number(year), Number(month) - 1, Number(day));
-  }
-
-  const uyMatch = text.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
-  if (uyMatch) {
-    const [, day, month, year] = uyMatch;
-    return new Date(Number(year), Number(month) - 1, Number(day));
-  }
-
-  const parsed = new Date(text);
-  if (Number.isNaN(parsed.getTime())) return null;
-
-  return startOfLocalDay(parsed);
-}
-
 // CONSUMO DE API
 function renderWeek(menu) {
   const container = document.getElementById("menu-week");
@@ -163,45 +116,42 @@ function paintToday({ dateText, tags, desc }) {
   const elDate = document.getElementById("menu-date");
   const elTags = document.getElementById("menu-tags");
   const elDesc = document.getElementById("menu-desc");
+  const elFallback = document.getElementById("menu-fallback");
   const elPrice = document.getElementById("menu-price");
 
   if (elDate) elDate.textContent = dateText;
   if (elTags) elTags.textContent = tags || "";
   if (elDesc) elDesc.textContent = desc || "";
 
+  if (elFallback) elFallback.hidden = true;
+
   if (elPrice) elPrice.style.display = "";
 }
 
-function resetMenuContent() {
+function showTodayFallback(msg) {
   const elDate = document.getElementById("menu-date");
   const elTags = document.getElementById("menu-tags");
   const elDesc = document.getElementById("menu-desc");
   const elFallback = document.getElementById("menu-fallback");
   const elPrice = document.getElementById("menu-price");
-  const loadingEl = document.getElementById("menu-loading");
-  const weekEl = document.getElementById("menu-week");
 
-  if (elDate) elDate.textContent = "";
+  if (elDate) elDate.textContent = formatDateES(new Date());
   if (elTags) elTags.textContent = "";
   if (elDesc) elDesc.textContent = "";
-  if (loadingEl) loadingEl.hidden = true;
-  if (weekEl) weekEl.innerHTML = "";
+
   if (elFallback) {
-    elFallback.textContent = "";
-    elFallback.hidden = true;
+    elFallback.textContent = msg;
+    elFallback.hidden = false;
   }
+
+  const loadingEl = document.getElementById("menu-loading");
+  if (loadingEl) loadingEl.hidden = true;
+
   if (elPrice) elPrice.style.display = "none";
-  hideWeeklySpecial();
 }
-
-function hideMenuBecauseUnavailable() {
-  resetMenuContent();
-  hideMenuSection();
-}
-
 async function loadMenu() {
   const loadingEl = document.getElementById("menu-loading");
-  hideMenuBecauseUnavailable();
+  if (loadingEl) loadingEl.hidden = false;
 
   try {
     const res = await fetch(MENU_API_URL, { cache: "no-store" });
@@ -209,60 +159,62 @@ async function loadMenu() {
 
     const data = await res.json();
 
+    const weekly = data.plato_semanal;
+
+if (weekly) {
+  paintWeeklySpecial({
+    nombre: safeText(weekly.nombre),
+    descripcion: safeText(weekly.descripcion),
+  });
+}
+
     // --- Blindaje mínimo ---
     if (!data || typeof data !== "object") {
+      showTodayFallback("Menú no disponible.");
       return;
     }
 
     if (!data.semana_inicio) {
+      showTodayFallback("Menú no disponible (faltan datos).");
       return;
     }
 
-    if (!Array.isArray(data.menu) || data.menu.length === 0) {
+    if (!Array.isArray(data.menu) || data.menu.length < 5) {
+      showTodayFallback("Menú no disponible (semana incompleta).");
       return;
     }
 
-    const start = parseSheetDate(data.semana_inicio);
-    if (!start) {
+    // 1) Modal semanal
+    renderWeek(data.menu);
+    setupStrictAccordion();
+
+    // 2) Semana vigente basada en la Sheet
+    const start = new Date(data.semana_inicio);
+    const today = new Date();
+
+    if (today < start) {
+      showTodayFallback(`El menú se publica desde el ${formatDateES(start)}.`);
       return;
     }
 
-    const today = startOfLocalDay(new Date());
-    const diffDays = Math.round((today - start) / (1000 * 60 * 60 * 24));
+    const diffDays = Math.floor((today - start) / (1000 * 60 * 60 * 24));
 
     if (diffDays < 0 || diffDays > 4) {
+      showTodayFallback("Nos vemos el domingo 15/03. PLATOxGARASH");
       return;
     }
 
     const item = data.menu[diffDays];
-    if (!item || typeof item !== "object") {
-      return;
-    }
-
     const tags = stripTags(item?.tags);
     const desc = safeText(item?.descripcion);
 
     if (!tags && !desc) {
+      showTodayFallback("Hoy no hay menú publicado.");
       return;
     }
 
     const shownDate = new Date(start);
-    shownDate.setDate(shownDate.getDate() + diffDays);
-
-    showMenuSection();
-
-    const weekly = data.plato_semanal;
-    if (weekly && (safeText(weekly.nombre) || safeText(weekly.descripcion))) {
-      paintWeeklySpecial({
-        nombre: safeText(weekly.nombre),
-        descripcion: safeText(weekly.descripcion),
-      });
-    } else {
-      hideWeeklySpecial();
-    }
-
-    renderWeek(data.menu);
-    setupStrictAccordion();
+    shownDate.setDate(start.getDate() + diffDays);
 
     paintToday({
       dateText: formatDateES(shownDate),
@@ -274,7 +226,7 @@ async function loadMenu() {
     if (loadingEl) loadingEl.hidden = true;
   } catch (err) {
     console.error("Error cargando menú:", err);
-    hideMenuBecauseUnavailable();
+    showTodayFallback("Hoy no pudimos cargar el menú. Probá más tarde.");
   }
 }
 
