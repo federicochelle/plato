@@ -128,12 +128,16 @@ function paintToday({ dateText, tags, desc }) {
   if (elPrice) elPrice.style.display = "";
 }
 
-function showTodayFallback(msg) {
+function showTodayFallback(msg, { onlyMessage = false } = {}) {
   const elDate = document.getElementById("menu-date");
   const elTags = document.getElementById("menu-tags");
   const elDesc = document.getElementById("menu-desc");
   const elFallback = document.getElementById("menu-fallback");
   const elPrice = document.getElementById("menu-price");
+  const weeklySpecial = document.getElementById("weekly-special");
+  const menuMeta = document.querySelector("#menu .menu-card .menu-meta");
+  const menuActions = document.querySelector("#menu .menu-card .actions");
+  const menuOpen = document.getElementById("menu-open");
 
   if (elDate) elDate.textContent = formatDateES(new Date());
   if (elTags) elTags.textContent = "";
@@ -148,6 +152,13 @@ function showTodayFallback(msg) {
   if (loadingEl) loadingEl.hidden = true;
 
   if (elPrice) elPrice.style.display = "none";
+
+  if (onlyMessage) {
+    if (weeklySpecial) weeklySpecial.hidden = true;
+    if (menuMeta) menuMeta.hidden = true;
+    if (menuActions) menuActions.hidden = true;
+    if (menuOpen) menuOpen.hidden = true;
+  }
 }
 async function loadMenu() {
   const loadingEl = document.getElementById("menu-loading");
@@ -200,7 +211,10 @@ if (weekly) {
     const diffDays = Math.floor((today - start) / (1000 * 60 * 60 * 24));
 
     if (diffDays < 0 || diffDays > 4) {
-      showTodayFallback("Nos vemos el domingo 15/03. PLATOxGARASH");
+      showTodayFallback(
+        "Buen fin de semana amigxs! Nos vemos la próxima semana!",
+        { onlyMessage: true },
+      );
       return;
     }
 
