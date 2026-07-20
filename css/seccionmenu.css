@@ -53,6 +53,28 @@
   z-index: 1;
 }
 
+@media (min-width: 901px) {
+  #menu .container.container-narrow {
+    max-width: 920px;
+  }
+
+  .weekly-special {
+    text-align: center;
+  }
+
+  #menu-tags.menu-title,
+  #menu-desc.menu-description,
+  .menu-inline-price,
+  .weekly-special-label,
+  #weekly-special-name.menu-title,
+  #weekly-special-desc.menu-description,
+  .weekly-special-price,
+  #menu-fallback {
+    text-align: center;
+    margin-inline: auto;
+  }
+}
+
 /* =========================
    MENU CARD (base + upgrade)
 ========================= */
@@ -128,6 +150,15 @@
   font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--color-text);
+}
+
+.menu-inline-price,
+.weekly-special-price {
+  font-size: 0.9rem;
+  margin: 0.5rem 0 0;
+  font-weight: 700;
+  color: var(--color-text);
+  opacity: 1;
 }
 
 /* Empuja el CTA hacia abajo si la card crece */
@@ -226,6 +257,11 @@
 ========================= */
 
 @media (max-width: 520px) {
+  #menu .container.container-narrow {
+    max-width: none;
+    padding-inline: 0;
+  }
+
   .menu-card {
     padding: 1.05rem;
     border-radius: 14px;
@@ -268,6 +304,13 @@
   line-height: 1.55;
   opacity: 0.9;
   margin: 0;
+}
+
+@media (min-width: 901px) {
+  #weekly-special-desc.menu-description {
+    text-align: center;
+    margin-inline: auto;
+  }
 }
 
 
