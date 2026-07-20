@@ -162,7 +162,9 @@ function showTodayFallback(msg, { onlyMessage = false } = {}) {
 }
 async function loadMenu() {
   const loadingEl = document.getElementById("menu-loading");
+  const elPrice = document.getElementById("menu-price");
   if (loadingEl) loadingEl.hidden = false;
+  if (elPrice) elPrice.style.display = "none";
 
   try {
     const res = await fetch(MENU_API_URL, { cache: "no-store" });
