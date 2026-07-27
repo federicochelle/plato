@@ -1,5 +1,5 @@
 const MENU_API_URL =
-  "https://script.googleusercontent.com/macros/echo?user_content_key=AWDtjMXoXxoHpxNuh90UlgUPF6FwEQ0JGww3_tX4S4TapCysrlb4Uz3gBUB9oz5DgqFU5c8ysg836iP7aW_aRYr2C073_wdxnjWLJrSuYUJmRC5RqjW5Aqe0OYLZy3PbG4czBiiMJ_BkYChjLKTyjHxs2aFsO249YK1op7h-vwe2q-ojyrD4WgaPk9ZUHo9y3T-ZXZkLB340bJ8jojFC9NJT7EQJFS7oZRQysJER3AFlQEAKZgzy4DTUYmVJdKL2XQLYbrVAlKJXs8zU-9FvH91S4NlYV3-pHw&lib=MqgZhj5zhhmIJ-EpNDB63jqsBj-ld1thL";
+  "https://script.google.com/macros/s/AKfycbyoV3xqlo3m60UX6thFwkUCdLfdvpTggTQUuNXeLO3_RaHRO9E-y1iMBQusrxomFSY/exec";
 
 function stripTags(text) {
   return safeText(text).replace(/<[^>]*>/g, "");
