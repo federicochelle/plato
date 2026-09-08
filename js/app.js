@@ -263,7 +263,7 @@ document.addEventListener("keydown", (e) => {
     descEl.textContent = desc;
 
     if (waEl) {
-      const phone = "59891640124";
+      const phone = "59892103280";
       const msg = encodeURIComponent(`Hola! Quiero pedir: ${title}.`);
       waEl.href = `https://wa.me/${phone}?text=${msg}`;
     }
